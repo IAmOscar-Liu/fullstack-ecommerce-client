@@ -1,0 +1,173 @@
+.aside {
+  padding-top: 0.3em;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  width: 300px;
+  height: calc(100vh - 72px);
+  background: rgb(206, 205, 205);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.7s;
+  z-index: 9999;
+}
+
+.aside > a {
+  margin: 0.6em auto 0 16px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.3em;
+  color: #644e2d;
+}
+
+.aside > a:hover span {
+  text-decoration: underline;
+}
+
+.aside > a i {
+  margin-right: 8px;
+}
+
+.aside section {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 16px 0 16px;
+}
+
+.aside section h4 {
+  font-size: 1.2em;
+  margin-bottom: 0.3em;
+}
+
+.aside section ul {
+  list-style: none;
+}
+
+.aside section ul li {
+  color: rgb(83, 79, 79);
+  padding-block: 0.2em;
+  min-height: 28px;
+}
+
+.aside section.aside-overview ul li + li {
+  padding-block: 0.4em;
+  margin-top: 0.5em;
+}
+
+.aside section ul li:hover,
+.aside section ul li.active {
+  margin-inline: -0.4em;
+  padding-inline: 0.4em;
+  border-radius: 0.8em;
+}
+
+.aside section ul li:hover {
+  background: rgb(194, 189, 189);
+}
+
+.aside section ul li.active {
+  background: rgb(83, 79, 79);
+  color: rgb(206, 205, 205);
+  pointer-events: none;
+}
+
+.aside section ul li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: inherit;
+  display: flex;
+  font-size: 1.05em;
+}
+
+.aside section ul li a i,
+.aside section ul li a img {
+  width: 25px;
+  height: 25px;
+  margin-right: 0.5em;
+  flex-shrink: 0;
+}
+
+.aside section ul li a i {
+  font-size: 1.3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aside section ul li a img {
+  border-radius: 50%;
+}
+
+.aside section ul li a span {
+  flex-grow: 1;
+  padding-right: 0.5em;
+  /* white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+
+.aside section.aside-overview ul li span {
+  font-size: 1.15em;
+}
+
+.aside section ul li a b {
+  border-radius: 2.5ch;
+  font-size: 0.95em;
+  color: #eee;
+  background: gray;
+  min-width: 3ch;
+  padding: 2px 6px;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.aside .aside-footer {
+  background: #afa9a9;
+  margin-top: 1em;
+  font-size: 0.9em;
+}
+
+.aside .aside-footer h1 {
+  font-size: 1.5em;
+}
+
+.aside .aside-footer h1 i {
+  margin-right: 0.3em;
+}
+
+.aside .aside-footer .aside-footer-icons {
+  display: flex;
+  justify-content: center;
+  margin-block: 0.3em 0.7em;
+}
+
+.aside .aside-footer .aside-footer-icons i.fab {
+  font-size: 1.8em;
+  margin-inline: 0.15em;
+  cursor: pointer;
+}
+
+.aside .aside-footer .aside-footer-icons i.fab:hover {
+  color: blue;
+  transform: scale(1.2);
+}
+
+@media (max-width: 740px) {
+  .aside {
+    transform: translate(-100%, 40px);
+  }
+
+  .aside.open {
+    transform: translate(0, 40px);
+  }
+}
+
+/*
+    aside.aside input[type="checkbox"],
+    aside.aside i.fa-search {
+      display: flex;
+    }
+  */

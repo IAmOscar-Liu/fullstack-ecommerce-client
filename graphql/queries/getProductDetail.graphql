@@ -1,0 +1,26 @@
+query getProductDetail($product_id: Float!) {
+  getProductDetail(product_id: $product_id) {
+    id
+    name
+    img_url
+    price
+    isOnSale
+    avg_rating
+    rating_times
+    total_order_count
+    description
+    addedAt
+    updateAt
+    createdBy
+    isAvailable
+    account_id
+    account_name
+    account_img_url
+    categories {
+      ...CategorySnippet
+    }
+    simularProducts {
+      ...ProductBriefSnippet
+    }
+  }
+}

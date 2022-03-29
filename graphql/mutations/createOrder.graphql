@@ -1,0 +1,24 @@
+mutation CreateOrder($orderInput: OrderInput!) {
+  createOrder(orderInput: $orderInput) {
+    session_id
+  }
+}
+
+mutation ConfirmOrder($session_id: String!, $account_id: ID!) {
+  confirmOrder(session_id: $session_id, account_id: $account_id) {
+    session_id
+    amount_total
+  }
+}
+
+mutation CancelOrder(
+  $session_id: String!
+  $account_id: ID!
+  $payment: String = "Incomplete"
+) {
+  cancelOrder(
+    session_id: $session_id
+    account_id: $account_id
+    payment: $payment
+  )
+}

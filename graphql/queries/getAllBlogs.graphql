@@ -1,0 +1,12 @@
+query GetAllBlogs($limit: Float, $offset: Float) {
+  getAllBlogs(limit: $limit, offset: $offset) {
+    blogs {
+      ...BlogDetailSnippet
+    }
+    hasMore
+  }
+}
+
+query GetNumOfBlogs {
+  getNumOfBlogs
+}

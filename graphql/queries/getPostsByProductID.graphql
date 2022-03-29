@@ -1,0 +1,30 @@
+query GetPostsByProductID($product_id: Float!, $offset: Float, $limit: Float) {
+  getPostsByProductID(product_id: $product_id, offset: $offset, limit: $limit) {
+    posts {
+      ...PostDetailSnippet
+    }
+    hasMore
+  }
+}
+
+query GetMostCommentsPostsByProductID($product_id: Float!, $offset: Float, $limit: Float) {
+  getMostCommentsPostsByProductID(product_id: $product_id, offset: $offset, limit: $limit) {
+    posts {
+      ...PostDetailSnippet
+    }
+    hasMore
+  }
+}
+
+query GetMostLikePostsByProductID($product_id: Float!, $offset: Float, $limit: Float) {
+  getMostLikePostsByProductID(product_id: $product_id, offset: $offset, limit: $limit) {
+    posts {
+      ...PostDetailSnippet
+    }
+    hasMore
+  }
+}
+
+query GetNumOfPostsByProductID($product_id: Float!) {
+  getNumOfPostsByProductID(product_id: $product_id)
+}

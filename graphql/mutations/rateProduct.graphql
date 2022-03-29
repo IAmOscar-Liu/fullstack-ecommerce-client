@@ -1,0 +1,6 @@
+mutation RateProduct($rateInput: RateInput!) {
+  rateProduct(rateInput: $rateInput) {
+    avg_rating
+    rating_times
+  }
+}

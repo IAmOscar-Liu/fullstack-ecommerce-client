@@ -1,0 +1,15 @@
+query GetProductByCategoryID(
+  $category_id: Float!
+  $limit: Float
+  $offset: Float
+) {
+  getProductByCategoryID(
+    category_id: $category_id
+    limit: $limit
+    offset: $offset
+  ) {
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}

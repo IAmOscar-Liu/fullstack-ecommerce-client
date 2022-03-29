@@ -1,0 +1,9 @@
+query GetProductByCreatedBy($offset: Float, $limit: Float, $createdBy: Float!) {
+  getProductByCreatedBy(offset: $offset, limit: $limit, createdBy: $createdBy) {
+    hasMore
+    total
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}

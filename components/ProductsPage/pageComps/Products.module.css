@@ -1,0 +1,27 @@
+.products {
+  background: #e1d6ae;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.products h1.products-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  text-transform: capitalize;
+  margin-bottom: 0.3em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg) rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 450px) {
+  .products h1.products-list-h1 {
+    font-size: 2em;
+  }
+}

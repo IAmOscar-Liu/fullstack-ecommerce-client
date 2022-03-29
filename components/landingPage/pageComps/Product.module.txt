@@ -1,0 +1,298 @@
+.products {
+  background: #e1d6ae;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.products h1.products-h1 {
+  margin: 1em auto;
+  font-size: 2.5em;
+  text-align: center;
+  color: #a11c1c;
+}
+
+.products h1.products-h1::before {
+  background: #a11c1c;
+}
+
+.products .products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2em;
+  width: 80%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.products .products-grid article {
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  background: #c6bdbd;
+  /* padding-inline: 10%; */
+  box-shadow: 3px 8px 16px 3px #615829;
+  border-radius: 1.5em;
+  position: relative;
+}
+
+.products .products-grid article span.ribbon {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 150px;
+  height: 150px;
+  /* background: red;*/
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform-origin: top left;
+  pointer-events: none;
+}
+
+.products .products-grid article span.ribbon::before {
+  content: "On Sale";
+  position: absolute;
+  width: 150%;
+  height: 40px;
+  background: #af3131;
+  transform: rotate(-45deg) translateY(-20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2em;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.products .products-grid article span.ribbon::after {
+  content: "";
+  position: absolute;
+  background: rgb(77, 33, 33);
+  width: 10px;
+  height: 10px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  /* 150px - 10px = 140px */
+  box-shadow: 140px -140px rgb(77, 33, 33);
+}
+
+.products .products-grid article .products-grid-imgBx {
+  margin-bottom: 1.1em;
+  width: 100%;
+  /* max-width: 300px; */
+  border-radius: 1em 1em 0 0;
+  /* height: 300px; */
+  padding-top: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 8px 12px rgb(52 24 24 / 70%);
+}
+
+.products .products-grid article .products-grid-imgBx i {
+  --i-clr: #de3523;
+  position: absolute;
+  font-size: 1.6em;
+  right: 12px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5em;
+  height: 1.5em;
+  border: 2px solid var(--i-clr);
+  border-radius: 10px;
+  color: var(--i-clr);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transform: translate(calc(20px + 1.5em), -24px);
+  transition: transform 0.5s;
+}
+
+.products .products-grid article .products-grid-imgBx:hover i {
+  transform: translate(0, 0);
+}
+
+.products .products-grid article .products-grid-imgBx:hover i:nth-of-type(1) {
+  transition-delay: 0.1s;
+}
+
+.products .products-grid article .products-grid-imgBx:hover i:nth-of-type(2) {
+  transition-delay: 0.25s;
+}
+
+.products .products-grid article .products-grid-imgBx:hover i:nth-of-type(3) {
+  transition-delay: 0.4s;
+}
+
+.products .products-grid article .products-grid-imgBx i:nth-of-type(1) {
+  top: 12px;
+}
+
+.products .products-grid article .products-grid-imgBx i:nth-of-type(2) {
+  top: calc(12px + 1.8em);
+}
+
+.products .products-grid article .products-grid-imgBx i:nth-of-type(3) {
+  top: calc(12px + 3.6em);
+}
+
+.products .products-grid article .products-grid-imgBx i:hover {
+  background: #fff;
+  box-shadow: 2px 2px 2px rgb(255 0 0 / 70%), -2px -2px 2px rgb(255 0 0 / 70%);
+  width: 1.8em;
+  height: 1.8em;
+  right: calc(12px - 0.1em);
+}
+
+.products .products-grid article .products-grid-imgBx i:nth-of-type(1):hover {
+  top: calc(12px - 0.1em);
+}
+
+.products .products-grid article .products-grid-imgBx i:nth-of-type(2):hover {
+  top: calc(12px + 1.8em - 0.1em);
+}
+
+.products .products-grid article .products-grid-imgBx i:nth-of-type(3):hover {
+  top: calc(12px + 3.6em) - 0.1em;
+}
+
+.products .products-grid article .products-grid-imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.products .products-grid article .products-grid-imgBx:hover img {
+  transform-origin: top right;
+  transform: scale(1.5);
+  left: 3px;
+  filter: brightness(0.5);
+}
+
+.products .products-grid article h1 {
+  margin-inline: 8%;
+  color: #333;
+  font-size: 1.4em;
+}
+
+.products .products-grid article .products-grid-rating {
+  margin: 0.15em 8% auto 8%;
+}
+
+.products .products-grid article .products-grid-rating b {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background: #655d5d;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+
+.products .products-grid article .products-grid-rating b.rate {
+  background: #dada14;
+}
+
+.products .products-grid article p {
+  color: #b00c0c;
+  font-size: 1.5em;
+  margin: 0.2em 10% 0.5em 10%;
+}
+
+.products .products-grid article .products-grid-btns {
+  position: absolute;
+  right: 8%;
+  bottom: 0.3em;
+  display: flex;
+  justify-content: flex-end;
+  padding-block: 0.6em 1em;
+}
+
+.products .products-grid article .products-grid-btns i {
+  font-size: 1.1em;
+  /* border: 2px solid red; */
+  background: rgb(207, 127, 98);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 6px;
+  color: beige;
+  transition: transform 0.3s;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px rgb(5 5 5 / 70%);
+}
+
+.products .products-grid article .products-grid-btns i + i {
+  margin-left: 0.5em;
+}
+
+.products .products-grid article .products-grid-btns i:hover {
+  transform: scale(1.1);
+  background: chartreuse;
+}
+
+.products .products-go {
+  font-size: 1.5em;
+  margin-top: 1.6em;
+  width: 90%;
+  margin-inline: auto;
+  color: #b71fb7;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.products .products-go a {
+  background: chocolate;
+  color: #ddd;
+  text-decoration: none;
+  border-radius: 0.5em;
+  padding: 0.1em 0.4em;
+  white-space: nowrap;
+  box-shadow: 3px 3px 6px rgb(0 0 0 / 70%);
+}
+
+.products .products-go a:hover {
+  background: coral;
+}
+
+@media (max-width: 450px) {
+  .products h1.products-h1 {
+    font-size: 2em;
+  }
+
+  .products .products-grid {
+    grid-template-columns: 1fr;
+    width: 80%;
+  }
+
+  .products .products-grid article {
+    font-size: 0.9em;
+    max-width: 280px;
+  }
+
+  .products .products-go {
+    font-size: 1.15em;
+  }
+}

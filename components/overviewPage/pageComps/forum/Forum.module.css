@@ -1,0 +1,955 @@
+.forum {
+  background: #fcfbf7;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.forum h1.forum-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  text-transform: capitalize;
+  margin-bottom: 1em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg)
+    rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
+}
+
+.forum .forum-container {
+  width: 90%;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.forum .forum-container .select-and-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.forum .forum-container .select-and-add .select-menu {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  position: relative;
+}
+
+.forum .forum-container .select-and-add .select-menu input[type="checkbox"] {
+  display: none;
+}
+
+.forum .forum-container .select-and-add .select-menu label {
+  font-size: 1.1em;
+  color: #333;
+  padding: 0.3em 0.7em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.forum .forum-container .select-and-add .select-menu label b {
+  width: 20px;
+  height: 20px;
+  /* border: 0px solid #111;
+  border-top-width: 5px;
+  border-left-width: 5px; */
+  background: #111;
+  position: relative;
+  transform: translate(-5px, -5px) rotate(-135deg);
+  transition: transform 0.5s;
+  transition-delay: 0.1s;
+}
+
+.forum .forum-container .select-and-add .select-menu label b::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 5px;
+  left: 5px;
+  background: #fcfbf7;
+}
+
+.forum .forum-container .select-and-add .select-menu ul {
+  list-style-type: none;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 3px);
+  width: 100%;
+  background: #fcfbf7;
+  border: 1px solid #666;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.forum
+  .forum-container
+  .select-and-add
+  .select-menu
+  input[type="checkbox"]:checked
+  ~ label
+  b {
+  transform: translate(-5px, 5px) rotate(45deg);
+}
+
+.forum
+  .forum-container
+  .select-and-add
+  .select-menu
+  input[type="checkbox"]:checked
+  ~ ul {
+  display: flex;
+}
+
+.forum .forum-container .select-and-add .select-menu ul li {
+  padding-inline: 0.7em;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.forum .forum-container .select-and-add .select-menu ul li:hover {
+  background: coral;
+}
+
+.forum .forum-container .select-and-add button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background: #ea3656;
+  color: #eee;
+  font-size: 1.1em;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+  transition: transform 0.5s;
+  box-shadow: 2px 3px 6px rgb(0 0 0 / 50%);
+}
+
+.forum .forum-container .select-and-add button:hover {
+  transform: scale(1.2);
+}
+
+.forum .forum-container .select-and-add button i {
+  margin-right: 6px;
+}
+
+.forum .forum-container .add-zone {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2em;
+  box-shadow: 3px 3px 6px rgb(0 0 0 / 70%);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  padding: 1em 1.8em;
+  position: relative;
+}
+
+.forum .forum-container .add-zone .add-zone-header {
+  display: grid;
+  grid-template-columns: 40px auto;
+  gap: 1em;
+  align-items: center;
+  margin-bottom: 0.7em;
+}
+
+.forum .forum-container .add-zone .add-zone-header .imgBx {
+  width: 100%;
+  height: 40px;
+}
+
+.forum .forum-container .add-zone .add-zone-header .imgBx img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.forum .forum-container .add-zone .add-zone-header p {
+  font-weight: 700;
+  font-size: 1.4em;
+  color: #333;
+}
+
+.forum .forum-container .add-zone .add-zone-content {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ccc;
+}
+
+.forum .forum-container .add-zone .add-zone-content:focus-within {
+  background: rgb(197, 197, 197);
+  outline: 1px solid #999;
+}
+
+.forum .forum-container .add-zone .add-zone-content textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 6px 12px;
+  background: transparent;
+  font-size: 1.1em;
+}
+
+.forum .forum-container .add-zone .add-zone-image {
+  margin-top: 1em;
+  width: 100%;
+  padding-top: calc(100% * 9 / 16);
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 3px 3px 6px rgb(0 0 0 / 70%);
+  position: relative;
+}
+
+.forum .forum-container .add-zone .add-zone-image img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forum .forum-container .add-zone input {
+  display: none;
+}
+
+.forum .forum-container .add-zone .add-zone-btns {
+  margin-top: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forum .forum-container .add-zone .add-zone-btns label.add-img,
+.forum .forum-container .add-zone .add-zone-btns label.submit,
+.forum .forum-container .add-zone .add-zone-btns button {
+  font-size: 1.1em;
+  color: #eee;
+  padding: 0.2em 0.6em;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 2px 3px 3px rgb(0 0 0 / 50%);
+  transition: transform 0.5s;
+}
+
+.forum .forum-container .add-zone .add-zone-btns label.add-img {
+  background: #ea3656;
+}
+
+.forum .forum-container .add-zone .add-zone-btns label.submit {
+  display: block;
+  outline: none;
+  border: none;
+  background: rgb(29, 29, 167);
+  color: #eee;
+  margin-left: auto;
+}
+
+.forum
+  .forum-container
+  .add-zone
+  .add-zone-btns
+  label.submit
+  input[type="submit"] {
+  display: none;
+}
+
+.forum .forum-container .add-zone .add-zone-btns button {
+  outline: none;
+  border: none;
+  background: rgb(150, 14, 132);
+  color: #eee;
+  margin-left: 0.7em;
+}
+
+.forum .forum-container .add-zone .add-zone-btns label.add-img:hover,
+.forum .forum-container .add-zone .add-zone-btns label.submit:hover,
+.forum .forum-container .add-zone .add-zone-btns button:hover {
+  transform: scale(1.1);
+}
+
+.forum .forum-container .add-zone .add-zone-btns label i,
+.forum .forum-container .add-zone .add-zone-btns button i {
+  margin-right: 8px;
+}
+
+.forum .forum-container .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.forum .forum-container .content .forum-article {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 1em 1.8em;
+}
+
+.forum .forum-container .content .forum-article .article-header {
+  display: grid;
+  grid-template-columns: 50px auto;
+  gap: 1em;
+  align-items: center;
+}
+
+.forum .forum-container .content .forum-article .article-header .imgBx {
+  height: 50px;
+}
+
+.forum .forum-container .content .forum-article .article-header .imgBx img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.forum .forum-container .content .forum-article .article-header .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.forum .forum-container .content .forum-article .article-header .info p {
+  color: #222;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.forum .forum-container .content .forum-article .article-header .info span {
+  color: #777;
+}
+
+.forum .forum-container .content .forum-article .article-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.7em;
+}
+
+.forum .forum-container .content .forum-article .article-content p {
+  color: #222;
+  font-size: 1.1em;
+}
+
+.forum .forum-container .content .forum-article .article-content .imgBx {
+  margin-top: 0.9em;
+  width: 100%;
+  padding-top: calc(100% * 9 / 16);
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 3px 3px 6px rgb(0 0 0 / 70%);
+}
+
+.forum .forum-container .content .forum-article .article-content .imgBx img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments p {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments p i {
+  font-size: 1.1em;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+  border-radius: 50%;
+  background: blue;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments p i:hover {
+  transform: scale(1.2);
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  p
+  i:nth-of-type(2) {
+  background: #ea3656;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments p span {
+  color: #666;
+  font-size: 1.1em;
+  padding-inline: 0.5em 1em;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments input {
+  display: none;
+}
+
+.forum .forum-container .content .forum-article .likes-and-comments button {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  color: #eee;
+  background: #f33e3e;
+  font-size: 1.1em;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 70%);
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu {
+  box-shadow: 0px 2px 3px rgb(0 0 0 / 70%);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  position: relative;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  input[type="checkbox"] {
+  display: none;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  label {
+  font-size: 1.1em;
+  color: #333;
+  padding: 0.1em 0.7em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  label
+  b {
+  width: 15px;
+  height: 15px;
+  background: #111;
+  position: relative;
+  transform: translate(-3px, -3px) rotate(-135deg);
+  transition: transform 0.5s;
+  transition-delay: 0.1s;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  label
+  b::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 5px;
+  left: 5px;
+  background: #fcfbf7;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  input[type="checkbox"]:checked
+  ~ label
+  b {
+  transform: translate(-3px, 3px) rotate(45deg);
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  input[type="checkbox"]:checked
+  ~ ul {
+  display: flex;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  ul {
+  list-style-type: none;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: calc(100% + 3px);
+  width: 100%;
+  background: #fcfbf7;
+  border: 1px solid #666;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  ul
+  li {
+  padding-inline: 0.7em;
+  font-size: 1.1em;
+  line-height: 1.8;
+}
+
+.forum-container
+  .content
+  .forum-article
+  .likes-and-comments
+  .comment-type-menu
+  ul
+  li:hover {
+  background: coral;
+}
+
+.forum .forum-container .content .forum-article .comments {
+  margin-top: 0.9em;
+  display: flex;
+  flex-direction: column;
+}
+
+.forum .forum-container .content .forum-article .comments .add-comment {
+  --avatar-size: 50px;
+  --add-button-size: 36px;
+  display: grid;
+  grid-template-columns: var(--avatar-size) auto var(--add-button-size);
+  gap: 1em;
+}
+
+.forum .forum-container .content .forum-article .comments .add-comment .imgBx {
+  width: 100%;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .add-comment
+  .imgBx
+  img {
+  width: 100%;
+  height: var(--avatar-size);
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .add-comment
+  .input-comment {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ccc;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .add-comment
+  .input-comment:focus-within {
+  background: rgb(197, 197, 197);
+  outline: 1px solid #999;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .add-comment
+  .input-comment
+  textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 6px 12px;
+  background: transparent;
+  font-size: 1.05em;
+}
+
+.forum .forum-container .content .forum-article .comments .add-comment i {
+  background: #ea3656;
+  color: #eee;
+  height: var(--add-button-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+.forum .forum-container .content .forum-article .comments .comments-content {
+  margin-top: 0.7em;
+  padding-inline: 1em 0.5em;
+  display: none;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content.show {
+  display: flex;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article {
+  --comment-avatar-size: 40px;
+  display: grid;
+  grid-template-columns: var(--comment-avatar-size) auto;
+  gap: 1em;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .imgBx {
+  margin-top: 6px;
+  width: 100%;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .imgBx
+  img {
+  width: 100%;
+  height: var(--comment-avatar-size);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  h3 {
+  display: flex;
+  align-items: center;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  h3
+  span {
+  flex-grow: 1;
+  font-size: 1.1em;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  h3
+  b {
+  font-size: 0.8em;
+  color: #666;
+  white-space: nowrap;
+}
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  p {
+  color: #444;
+  display: flex;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  p
+  > span {
+  margin-left: 0.7em;
+  padding-inline: 0.3em;
+  width: max-content;
+  color: #777;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 2px rgb(0 0 0 / 50%);
+  display: flex;
+  align-items: center;
+  background: white;
+  cursor: pointer;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  p
+  > span
+  i {
+  border-radius: 50%;
+  background: blue;
+  color: #eee;
+  font-size: 0.8em;
+  padding: 0.3em;
+  margin-right: 0.4em;
+}
+
+.forum
+  .forum-container
+  .content
+  .forum-article
+  .comments
+  .comments-content
+  article
+  .comment-info
+  p
+  > span
+  b {
+  width: 1ch;
+}
+
+@media (max-width: 860px) {
+  .forum .forum-container .add-zone .add-zone-btns {
+    flex-direction: column;
+  }
+
+  .forum .forum-container .add-zone .add-zone-btns > * {
+    width: max-content;
+  }
+
+  .forum .forum-container .add-zone .add-zone-btns label.submit {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .forum .forum-container .add-zone .add-zone-btns button {
+    margin-top: -36px;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .forum .forum-container .select-and-add {
+    font-size: 0.9em;
+  }
+
+  .forum .forum-container .select-and-add .select-menu label {
+    width: 200px;
+  }
+
+  .forum
+    .forum-container
+    .content
+    .forum-article
+    .likes-and-comments
+    .comment-type-menu
+    label {
+    width: 150px;
+  }
+
+  .forum .forum-container .add-zone .add-zone-btns {
+    font-size: 0.9em;
+  }
+
+  .forum .forum-container .add-zone .add-zone-btns button {
+    margin-top: -32px;
+  }
+
+  .forum .forum-container .content .forum-article .article-content p {
+    font-size: 1em;
+  }
+
+  .forum .forum-container .select-and-add .select-menu label b {
+    width: 16px;
+    height: 16px;
+    transform: translate(-3px, -3px) rotate(-135deg);
+  }
+
+  .forum
+    .forum-container
+    .select-and-add
+    .select-menu
+    input[type="checkbox"]:checked
+    ~ label
+    b {
+    transform: translate(-3px, 3px) rotate(45deg);
+  }
+
+  .forum .forum-container .add-zone .add-zone-content textarea {
+    font-size: 1em;
+  }
+
+  .forum .forum-container .content .forum-article .article-header .info p {
+    font-size: 1.4em;
+  }
+
+  .forum .forum-container .content .forum-article .likes-and-comments {
+    font-size: 0.84em;
+  }
+
+  .forum .forum-container .content .forum-article .likes-and-comments button {
+    font-size: 1em;
+  }
+
+  .forum .forum-container .content .forum-article .comments .add-comment {
+    --avatar-size: 36px;
+    --add-button-size: 30px;
+    gap: 0.6em;
+    font-size: 0.84em;
+  }
+
+  .forum .forum-container .content .forum-article {
+    padding-inline: 1.2em;
+  }
+
+  .forum .forum-container .content .forum-article .comments .comments-content {
+    padding-inline: 0.5em 0;
+  }
+
+  .forum
+    .forum-container
+    .content
+    .forum-article
+    .comments
+    .comments-content
+    article {
+    --comment-avatar-size: 30px;
+    gap: 0.6em;
+  }
+
+  .forum .forum-container .content .forum-article .likes-and-comments p i {
+    font-size: 0.9em;
+    width: 26px;
+    height: 26px;
+  }
+
+  .forum
+    .forum-container
+    .content
+    .forum-article
+    .comments
+    .comments-content
+    article
+    .comment-info
+    p
+    > span {
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,5 @@
+mutation CreatePostLike($postLikeInput: PostLikeInput!) {
+  createPostLike(postLikeInput: $postLikeInput) {
+    postLike
+  }
+}

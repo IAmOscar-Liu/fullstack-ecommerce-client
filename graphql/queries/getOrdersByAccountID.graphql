@@ -1,0 +1,37 @@
+query GetOrdersByAccountID($offset: Float, $limit: Float, $account_id: Float!) {
+  getOrdersByAccountID(
+    offset: $offset
+    limit: $limit
+    account_id: $account_id
+  ) {
+    hasMore
+    total
+    orders {
+      ...OrderDetailSnippet
+    }
+  }
+}
+
+query GetRecentOrderProducts($offset: Float, $limit: Float) {
+  getRecentOrderProducts(offset: $offset, limit: $limit) {
+    recentOrder {
+      id
+      product_id
+      product_name
+      product_price
+      product_img_url
+      payment
+      status
+    }
+    hasMore
+  }
+}
+
+query GetNumOfUserProductOrderBlog {
+  getNumOfUserProductOrderBlog {
+    total_user
+    total_product
+    total_order
+    total_blog
+  }
+}

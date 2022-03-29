@@ -1,0 +1,16 @@
+mutation UpdateUser(
+  $account_id: ID!
+  $userUpdateData: UserUpdateData!
+  $user_img: Upload
+) {
+  updateUser(
+    account_id: $account_id
+    userUpdateData: $userUpdateData
+    user_img: $user_img
+  ) {
+    account {
+      ...AccountSnippet
+    }
+    access_token
+  }
+}

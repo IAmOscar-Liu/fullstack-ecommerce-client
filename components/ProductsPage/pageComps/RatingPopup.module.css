@@ -1,0 +1,86 @@
+.modal {
+  width: 300px;
+  background: #eee;
+  outline: 50vmax solid rgba(0, 0, 0, 0.7);
+  position: fixed;
+}
+
+.modal .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  font-size: 32px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(167 154 154);
+  color: #eee;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.modal .rating-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal .rating-area h2 {
+  margin-top: 0.3em;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.modal .rating-area .product-rating {
+  margin-inline: auto;
+  display: flex;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.modal .rating-area .product-rating b {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-inline: 0.2em;
+  background: #655d5d;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  cursor: pointer;
+}
+
+.modal .rating-area .product-rating b.rate {
+  background: #dada14;
+}
+
+.modal .rating-area button {
+  outline: none;
+  border: none;
+  color: #eee;
+  background-color: rgb(99, 99, 240);
+  font-size: 1.2em;
+  padding: 3px 9px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+@media(max-width: 740px) {
+  .modal {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -1,0 +1,7 @@
+mutation createBlog($blogInput: BlogInput!, $user_img: Upload) {
+  createBlog(blogInput: $blogInput, user_img: $user_img) {
+    blog {
+      ...BlogDetailSnippet
+    }
+  }
+}

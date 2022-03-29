@@ -1,0 +1,7 @@
+query GetTopRatedProducts($limit: Float, $offset: Float, $total: Float) {
+  getTopRatedProducts(limit: $limit, offset: $offset, total: $total) {
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}

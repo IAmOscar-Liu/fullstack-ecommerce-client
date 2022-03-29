@@ -1,0 +1,5 @@
+mutation CreateCommentLike($commentLikeInput: CommentLikeInput!) {
+  createCommentLike(commentLikeInput: $commentLikeInput) {
+    commentLike
+  }
+}

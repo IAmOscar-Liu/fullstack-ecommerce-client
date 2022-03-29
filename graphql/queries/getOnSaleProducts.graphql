@@ -1,0 +1,7 @@
+query GetOnSaleProducts($limit: Float, $offset: Float) {
+  getOnSaleProducts(limit: $limit, offset: $offset) {
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}

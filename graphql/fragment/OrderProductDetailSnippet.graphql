@@ -1,0 +1,24 @@
+fragment OrderProductDetailSnippet on OrderProductDetail {
+  id
+  quantity
+  payment
+  status
+  order_id
+  product_id
+  orderedAt
+  updateAt
+  product_name
+  product_price
+  product_img_url
+}
+
+fragment OrderDetailSnippet on OrderDetail {
+  id
+  createdAt
+  updateAt
+  session_id
+  account_id
+  products {
+    ...OrderProductDetailSnippet
+  }
+}

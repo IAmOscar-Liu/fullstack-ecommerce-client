@@ -1,0 +1,116 @@
+.faq {
+  background: #fcfbf7;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.faq h1.faq-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  text-transform: capitalize;
+  margin-bottom: 1em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg)
+    rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
+}
+
+.faq .question-container {
+  width: 90%;
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq .question-container article {
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 12px;
+  padding: 0.8em 1em;
+  box-shadow: 2px 3px 3px rgb(0 0 0 / 70%);
+}
+
+.faq .question-container article input[type="checkbox"] {
+  display: none;
+}
+
+.faq .question-container article label {
+  color: #333;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  cursor: pointer;
+}
+
+.faq .question-container article label span {
+  margin-right: 6px;
+}
+
+.faq .question-container article label b {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  border: 0px solid #333;
+  border-top-width: 5px;
+  border-left-width: 5px;
+  margin-left: auto;
+  transform: rotate(-135deg);
+  transition: transform 0.5s;
+  transition-delay: 0.1s;
+}
+
+.faq .question-container article .solution-section {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.7s;
+}
+
+.faq
+  .question-container
+  article
+  input[type="checkbox"]:checked
+  ~ .solution-section {
+  height: var(--el-height) !important;
+  transition: height 0.7s;
+}
+
+.faq .question-container article input[type="checkbox"]:checked ~ label b {
+  transform: rotate(45deg);
+}
+
+.faq .question-container article .solution-section > div {
+  font-size: 1.1em;
+  color: #444;
+}
+
+.faq .question-container article .solution-section > div p {
+  padding-block: 0.2em;
+}
+
+.faq .question-container article .solution-section > div ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq .question-container article .solution-section > div ul li {
+  padding-left: 1.2em;
+}
+
+@media (max-width: 450px) {
+  .faq .question-container article label {
+    font-size: 1.3em;
+  }
+
+  .faq .question-container article .solution-section > div {
+    font-size: 1em;
+  }
+}

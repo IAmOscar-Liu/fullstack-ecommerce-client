@@ -1,0 +1,9 @@
+mutation CreateBlogComment($blogCommentInput: BlogCommentInput! ){
+  createBlogComment(
+    blogCommentInput: $blogCommentInput
+  ) {
+    blogComment {
+       ...BlogCommentDetailSnippet
+    }
+  }
+}

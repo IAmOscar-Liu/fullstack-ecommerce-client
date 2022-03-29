@@ -1,0 +1,89 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer > div {
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-get-started {
+  background: #be7e7e;
+  color: beige;
+  justify-content: center;
+  padding-block: 3vmin;
+}
+
+.footer .footer-get-started h1 {
+  margin-right: max(20px, 3vw);
+  font-weight: 500;
+}
+
+.footer .footer-get-started h1 b {
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+
+.footer .footer-get-started .get-started-btns button {
+  outline: none;
+  border: none;
+  padding: 0.3em 0.8em;
+  font-size: 1.2em;
+  color: #fff;
+  border-radius: 1em;
+  background: #777777;
+  cursor: pointer;
+  box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s;
+}
+
+.footer .footer-get-started .get-started-btns button:hover {
+  transform: scale(1.2);
+}
+
+.footer .footer-get-started .get-started-btns button + button {
+  margin-left: max(16px, 1.5vw);
+  background: #b75115;
+}
+
+.footer .footer-main {
+  background: #afa9a9;
+  justify-content: space-around;
+  padding-block: 0.7em;
+}
+
+.footer .footer-main h1 i.fas {
+  margin-right: 0.3em;
+}
+
+.footer .footer-main .footer-icons {
+  font-size: 2em;
+}
+
+.footer .footer-main .footer-icons i.fab {
+  cursor: pointer;
+  padding-inline: 0.3em;
+}
+
+.footer .footer-main .footer-icons i.fab:hover {
+  color: #223ea3;
+  transform: scale(1.2);
+}
+
+@media (max-width: 670px) {
+  .footer .footer-get-started,
+  .footer .footer-main {
+    font-size: clamp(12px, 2.5vw, 18px);
+    flex-direction: column;
+  }
+
+  .footer .footer-get-started {
+    padding-bottom: 5vmin;
+  }
+
+  .footer .footer-get-started h1 {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}

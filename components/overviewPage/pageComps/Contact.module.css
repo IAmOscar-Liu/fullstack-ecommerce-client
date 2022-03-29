@@ -1,0 +1,143 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: max(20px, 6vw);
+  padding-block: 1.6em 2.4em;
+}
+
+.contact-container h1 {
+  margin-inline: auto;
+  margin-bottom: 0.3em;
+  color: #823d1b;
+  font-size: 2em;
+}
+
+.contact-container .contact-info-map {
+  display: flex;
+  flex-direction: column;
+  background: #a8eea8;
+  border-radius: 2em;
+  width: 100%;
+  max-width: 800px;
+  margin-inline: auto;
+  padding: 2em max(16px, 5vw);
+  box-shadow: 4px 4px 12px rgb(0 0 0 / 30%);
+}
+
+.contact-container .contact-info-map .contact-info {
+  display: flex;
+  width: 100%;
+  max-width: 550px;
+  margin-inline: auto;
+  flex-direction: column;
+}
+
+.contact-container .contact-info-map .contact-info h3 {
+  font-size: 1.6em;
+  color: #3941a4;
+  text-align: center;
+  margin-bottom: 0.3em;
+}
+
+.contact-container .contact-info-map .contact-info p {
+  display: flex;
+  font-size: 1.2em;
+  color: #136d1b;
+}
+
+.contact-container .contact-info-map .contact-info p b {
+  margin-right: 12px;
+}
+
+.contact-container .contact-info-map .contact-info p b i {
+  margin-right: 6px;
+}
+
+.contact-container .contact-info-map .contact-info .social-icons {
+  margin-block: 0.4em 0.6em;
+  font-size: 1.8em;
+  display: flex;
+  position: relative;
+}
+
+.contact-container .contact-info-map .contact-info .social-icons i {
+  cursor: pointer;
+  color: #136d1b;
+  transition: transform 0.5s;
+}
+
+.contact-container .contact-info-map .contact-info .social-icons i + i {
+  margin-left: max(10px, 1vw);
+}
+
+.contact-container .contact-info-map .contact-info .social-icons i:hover {
+  transform: scale(1.2);
+  color: rgb(70, 180, 85);
+}
+
+.contact-container .contact-info-map .contact-info .social-icons button {
+  flex-shrink: 0;
+  margin-left: auto;
+  outline: none;
+  border: none;
+  background: darkgreen;
+  color: #eee;
+  font-size: 0.6em;
+  padding: 0.15em 0.7em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.contact-container .contact-info-map .contact-info .social-icons button:hover {
+  transform: scale(1.2);
+  background: rgb(70, 180, 85);
+}
+
+.contact-container .contact-info-map .contact-map {
+  background: darkgreen;
+  position: relative;
+  width: min(100%, 550px);
+  padding-top: calc(min(100%, 550px) * 0.8);
+  align-self: center;
+}
+
+.contact-container .contact-info-map .contact-map iframe {
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  top: 3px;
+  left: 3px;
+}
+
+@media (max-width: 1080px) {
+  .contact-container .contact-info-map .contact-info p b strong {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .contact-container .contact-info-map .contact-info .social-icons i {
+    margin-bottom: 32px;
+  }
+
+  .contact-container .contact-info-map .contact-info .social-icons button {
+    position: absolute;
+    right: 0;
+    top: 36px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contact-container .contact-info-map .contact-info p {
+    font-size: 0.9em;
+  }
+
+  .contact-container .contact-info-map .contact-info .social-icons i {
+    font-size: 0.9em;
+  } 
+
+  .contact-container .contact-info-map .contact-info .social-icons button {
+    font-size: 0.5em; 
+  }
+}

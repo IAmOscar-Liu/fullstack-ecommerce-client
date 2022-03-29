@@ -1,0 +1,5 @@
+mutation CreateBlogLike($blogLikeInput: BlogLikeInput!) {
+  createBlogLike(blogLikeInput: $blogLikeInput) {
+    blogLike
+  }
+}

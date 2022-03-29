@@ -1,0 +1,24 @@
+fragment BlogCommentDetailSnippet on BlogCommentDetail {
+  id
+  content
+  createdAt
+  blogCommentLikeCount
+  account_id
+  account_name
+  account_img_url
+}
+
+fragment BlogDetailSnippet on BlogDetail {
+  id
+  content
+  img_url
+  createdAt
+  blogLikeCount
+  blogCommentCount
+  account_id
+  account_name
+  account_img_url
+  blogComments {
+    ...BlogCommentDetailSnippet
+  }
+}

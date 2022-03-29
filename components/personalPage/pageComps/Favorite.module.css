@@ -1,0 +1,27 @@
+.favorite {
+  background: #f1f0ed;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.favorite h1.favorite-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  margin-bottom: 1em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg) rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.favorite .favorite-container {
+  width: 90%;
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}

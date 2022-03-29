@@ -1,0 +1,11 @@
+fragment ProductBriefSnippet on ProductBrief {
+  id
+  name
+  price
+  img_url
+  isOnSale
+  avg_rating
+  rating_times
+  total_order_count
+  isAvailable
+}

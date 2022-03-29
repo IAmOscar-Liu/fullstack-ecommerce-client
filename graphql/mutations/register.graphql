@@ -1,0 +1,8 @@
+mutation Register($userRegister: UserRegisterInput!) {
+  register(userRegister: $userRegister) {
+    account {
+      ...AccountSnippet
+    }
+    access_token
+  }
+}

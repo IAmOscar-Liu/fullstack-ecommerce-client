@@ -1,0 +1,340 @@
+.login {
+  background: #ccefcf;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.login h1.login-h1 {
+  margin: 1em auto;
+  font-size: 2.5em;
+  text-align: center;
+  color: #32552e;
+}
+
+.login h1.login-h1::before {
+  background: #32552e;
+}
+
+.login > button {
+  outline: none;
+  border: none;
+  background: transparent;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: chocolate;
+  width: max-content;
+  align-self: flex-end;
+  margin-right: max(5%, calc(50vw - 500px));
+  margin-block: -1em 1em;
+}
+
+.login > button:hover {
+  text-decoration: underline;
+}
+
+.login > button i {
+  margin-right: 8px;
+}
+
+.login .login-container {
+  width: 90%;
+  height: clamp(450px, 50vw, 500px);
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 4em 2em;
+  position: relative;
+}
+
+.login .login-container .card {
+  display: grid;
+  height: 100%;
+  background: green;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 5px 8px 16px rgba(0, 0, 0, 0.5), -5px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.login .login-container .signin-card,
+.login .login-container .signup-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .login-container .signin-card h2,
+.login .login-container .signup-card h2 {
+  font-size: 1.6em;
+  color: #c4e2a7;
+  margin-bottom: 1em;
+  margin-inline: 1em;
+  text-align: center;
+}
+
+.login .login-container .signin-card button,
+.login .login-container .signup-card button {
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1em;
+  color: green;
+  background: #c4e2a7;
+  padding: 0.3em 0.8em;
+  box-shadow: 2px 4px 10px rgb(19 36 14 / 70%);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.login .login-container .signin-card button:hover,
+.login .login-container .signup-card button:hover {
+  transform: scale(1.2);
+  background: #c9e0c9;
+}
+
+.login .login-container .input-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  box-shadow: 0 5px 12px rgb(0 0 0 / 50%);
+  background: #c4e2a7;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: transform 0.7s;
+}
+
+.login .login-container .input-section.user-signup {
+  transform: translate(100%, 0);
+}
+
+.login .login-container .input-section .section-container {
+  width: 200%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: transform 0.7s;
+}
+
+.login .login-container .input-section.user-signup .section-container {
+  transform: translate(-50%, 0);
+}
+
+.login .login-container .input-section .section-container article {
+  display: flex;
+  align-items: center;
+}
+
+.login .login-container .input-section .section-container article form {
+  width: 80%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.login .login-container .input-section .section-container article form h3 {
+  font-size: 2em;
+  color: rgb(13, 67, 17);
+}
+
+.login .login-container .input-section .section-container article form p {
+  position: relative;
+  margin-block: 1.1em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  p::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #444;
+}
+
+.login .login-container .input-section .section-container article form p input {
+  outline: none;
+  border: none;
+  background: transparent;
+  resize: none;
+  width: 100%;
+  font-size: 1em;
+}
+
+.login .login-container .input-section .section-container article form p label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #444;
+  transition: 0.5s;
+  cursor: text;
+}
+
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  p
+  input:focus
+  + label,
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  p
+  input:valid
+  + label {
+  top: -1.4em;
+  color: #32552e;
+  font-weight: 600;
+}
+
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  input[type="submit"],
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  > button {
+  outline: none;
+  border: none;
+  align-self: flex-start;
+  background: rgb(13, 67, 17);
+  color: #fff;
+  font-size: 1.2em;
+  padding: 0.3em 1.2em;
+  border-radius: 25px;
+  box-shadow: 2px 3px 3px rgb(19 36 14 / 70%);
+  cursor: pointer;
+  margin-top: 0.3em;
+  transition: transform 0.5s;
+}
+
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  > button {
+  margin-top: 0.7em;
+  background: beige;
+  color: #7a6e6e;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 3px 3px rgb(0 0 0 / 30%);
+}
+
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  > button
+  i {
+  margin-right: 8px;
+}
+
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  input[type="submit"]:hover,
+.login
+  .login-container
+  .input-section
+  .section-container
+  article
+  form
+  > button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 840px) {
+  .login > button {
+    margin-right: 10%;
+    margin-bottom: 0.5em;
+  }
+
+  .login .login-container {
+    width: 80%;
+    height: 600px;
+  }
+
+  .login .login-container .card {
+    grid-template-columns: 1fr;
+    gap: 100px;
+  }
+
+  .login .login-container .signin-card,
+  .login .login-container .signup-card {
+    height: 190px;
+  }
+
+  .login .login-container .signin-card h2,
+  .login .login-container .signup-card h2 {
+    margin-bottom: 0.5em;
+  }
+
+  .login .login-container .input-section {
+    width: 100%;
+    height: 60%;
+  }
+
+  .login .login-container .input-section.user-signup {
+    transform: translate(0, 66%);
+  }
+
+  .login .login-container .input-section .section-container {
+    width: 100%;
+    height: 200%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .login .login-container .input-section.user-signup .section-container {
+    transform: translate(0, -50%);
+  }
+
+  .login .login-container .input-section .section-container article form {
+    font-size: 0.92em;
+  }
+}
+
+@media (max-width: 450px) {
+  .login h1.login-h1 {
+    font-size: 2em;
+  }
+
+  .login .login-container .signin-card,
+  .login .login-container .signup-card {
+    font-size: 0.84em;
+  }
+
+  .login .login-container .input-section .section-container article form {
+    font-size: 0.84em;
+  }
+}

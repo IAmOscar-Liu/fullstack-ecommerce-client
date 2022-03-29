@@ -1,0 +1,15 @@
+query GetFavoriteByAccountID($account_id: Float!) {
+  getFavoriteByAccountID(account_id: $account_id) {
+    favorites {
+      id
+      addedAt
+      product_id
+      product_img_url
+      product_avg_rating
+      product_name
+      product_price
+      product_isOnSale
+      product_is_available
+    }
+  }
+}

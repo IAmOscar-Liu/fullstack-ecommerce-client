@@ -1,0 +1,8 @@
+query GetMostLikeBlog($limit: Float, $offset: Float) {
+  getMostLikeBlog(limit: $limit, offset: $offset) {
+    blogs {
+      ...BlogDetailSnippet
+    }
+    hasMore
+  }
+}

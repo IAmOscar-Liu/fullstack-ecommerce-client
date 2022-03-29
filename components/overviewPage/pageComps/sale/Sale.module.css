@@ -1,0 +1,557 @@
+.sale {
+  background: #fcfbf7;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.sale h1.sale-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  text-transform: capitalize;
+  margin-bottom: 1em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg) rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7);
+}
+
+.sale .sale-container {
+  width: 94%;
+  max-width: 1100px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sale .sale-container .sale-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.sale .sale-container .sale-stats article {
+  margin: 0.35em 0.5em;
+  display: flex;
+  gap: 0.8em;
+  border-radius: 0.5em;
+  box-shadow: 2px 3px 9px rgba(0, 0, 0, 0.7);
+  padding: 0.5em;
+  padding-left: 1em;
+  cursor: pointer;
+}
+
+.sale .sale-container .sale-stats article:hover {
+  background: #eff7c5;
+}
+
+.sale .sale-container .sale-stats article .num,
+.sale .sale-container .sale-stats article .icon {
+  display: flex;
+}
+
+.sale .sale-container .sale-stats article .num {
+  width: 55%;
+  flex-direction: column;
+  padding-bottom: 0.3em;
+}
+
+.sale .sale-container .sale-stats article .num h3 {
+  font-size: 2em;
+  color: #5656d0;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.sale .sale-container .sale-stats article .num p {
+  color: #666;
+}
+
+.sale .sale-container .sale-stats article .icon {
+  width: 45%;
+  display: flex;
+  color: #666;
+}
+
+.sale .sale-container .sale-stats article .icon i {
+  font-size: clamp(1em, 3.5vw, 2.5em);
+  margin: auto;
+}
+
+.sale .sale-container .charts {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.sale .sale-container .charts .polar-chart,
+.sale .sale-container .charts .bar-chart {
+  margin-top: 0.35em;
+  margin-inline: 0.5em;
+  position: relative;
+  border-radius: 0.5em;
+  box-shadow: 2px 3px 9px rgb(0 0 0 / 70%);
+  overflow: hidden;
+}
+
+.sale .sale-container .charts .polar-chart {
+  grid-column: 1 / span 4;
+  padding-top: calc(100% - 1em);
+}
+
+.sale .sale-container .charts .bar-chart {
+  grid-column: 5 / span 8;
+}
+
+.sale .sale-container .charts .polar-chart .chartBx,
+.sale .sale-container .charts .bar-chart .chartBx {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2%;
+}
+
+.sale .sale-container .sale-and-customers {
+  margin-top: 0.7em;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.sale .sale-container .sale-and-customers .orders,
+.sale .sale-container .sale-and-customers .customers {
+  grid-column: 1 / span 8;
+  margin-inline: 0.5em;
+  padding-inline: 1.5em;
+  border-radius: 0.5em;
+  box-shadow: 2px 3px 9px rgba(0, 0, 0, 0.7);
+}
+
+.sale .sale-container .sale-and-customers .orders h2,
+.sale .sale-container .sale-and-customers .customers h2 {
+  color: #5656d0;
+  font-size: 1.6em;
+  margin-block: 0.8em 0.1em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3em 8px;
+}
+
+.sale .sale-container .sale-and-customers .orders h2 button,
+.sale .sale-container .sale-and-customers .customers h2 button {
+  margin-left: auto;
+  background: #5656d0;
+  color: #eee;
+  outline: none;
+  border: none;
+  padding: 0.2em 0.5em;
+  border-radius: 0.5em;
+  font-size: 0.68em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sale .sale-container .sale-and-customers .orders h2 button:hover {
+  transform: scale(1.1);
+  background: rgb(54, 44, 112);
+}
+
+.sale .sale-container .sale-and-customers .orders .order-container {
+  margin-bottom: 1.2em;
+  color: #333;
+  overflow-x: scroll;
+}
+
+.sale .sale-container .sale-and-customers .orders .order-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  list-style-type: none;
+  min-width: 450px;
+}
+
+.sale .sale-container .sale-and-customers .orders .order-container ul li {
+  display: grid;
+  grid-template-columns: 5fr 60px 90px 2fr;
+  gap: 10px;
+}
+
+.sale .sale-container .sale-and-customers .orders .order-container ul li + li {
+  border-bottom: 1px solid rgba(161, 152, 152, 0.5);
+  cursor: pointer;
+  padding-block: 0.15em;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  + li:hover {
+  background: #eff7c5;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li:first-of-type {
+  font-weight: bolder;
+  font-size: 1.1em;
+  color: black;
+}
+
+.sale .sale-container .sale-and-customers .orders .order-container ul li p {
+  align-self: center;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li:first-of-type
+  p.status {
+  color: #333;
+  font-size: 1.1em;
+  font-weight: bolder;
+  padding: 0;
+  margin: 0;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.name {
+  min-width: 160px;
+  display: grid;
+  grid-template-columns: 26px auto;
+  gap: 6px;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.name
+  span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  line-height: 1.4;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.name
+  img {
+  width: 100%;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 50%;
+  align-self: center;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.payment {
+  justify-self: flex-start;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li:not(:first-of-type)
+  p.payment
+  > span {
+  font-size: 0.86em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.payment.succeeded
+  > span {
+  background: rgb(215 247 194);
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.payment.incomplete
+  > span {
+  background: rgb(235 238 241);
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.payment.failed
+  > span {
+  background: rgb(209, 59, 42);
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.price {
+  justify-self: end;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .orders
+  .order-container
+  ul
+  li
+  p.status {
+  width: 100%;
+  min-width: 100px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.status > span {
+  padding: 0.2em 0.6em;
+  border-radius: 0.3em;
+  color: beige;
+  margin-block: 0.4em;
+  font-size: 0.9em;
+}
+
+/*   "Delievered" | "Pending" | "Return" | "In Progress" */
+
+.status.delievered > span {
+  background: rgb(115, 230, 115);
+  font-size: 0.86em;
+}
+
+.status.pending > span {
+  background: rgb(230, 187, 69);
+}
+
+.status.cancel > span {
+  background: rgb(209, 59, 42);
+}
+
+.status.return > span {
+  background: rgb(210 66 157);
+}
+
+.status.in-progress > span {
+  background: rgb(87, 87, 224);
+}
+
+.sale .sale-container .sale-and-customers .customers {
+  grid-column: 9 / span 4;
+}
+
+.sale .sale-container .sale-and-customers .customers .user-container {
+  margin-block: 0.6em 1.2em;
+  overflow-x: scroll;
+}
+
+.sale .sale-container .sale-and-customers .customers .user-container ul {
+  min-width: 200px;
+  display: grid;
+  gap: 0.6em;
+}
+
+.sale .sale-container .sale-and-customers .customers .user-container ul li {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  cursor: pointer;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .customers
+  .user-container
+  ul
+  li:hover {
+  background: #eff7c5;
+  border-radius: 10px;
+  margin: -0.4em;
+  padding: 0.4em;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .customers
+  .user-container
+  ul
+  li
+  .imgBx {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .customers
+  .user-container
+  ul
+  li
+  .imgBx
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .customers
+  .user-container
+  ul
+  li
+  .user-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .customers
+  .user-container
+  ul
+  li
+  .user-info
+  h4 {
+  color: #222;
+  font-size: 1.4em;
+}
+
+.sale
+  .sale-container
+  .sale-and-customers
+  .customers
+  .user-container
+  ul
+  li
+  .user-info
+  p {
+  color: #666;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+@media (max-width: 1080px) {
+  .sale .sale-container .sale-stats article:nth-of-type(odd) {
+    grid-column: 1 / span 2;
+  }
+
+  .sale .sale-container .sale-stats article:nth-of-type(even) {
+    grid-column: 3 / span 2;
+  }
+
+  .sale .sale-container .sale-stats article .icon i {
+    font-size: 32px;
+  }
+
+  .sale .sale-container .charts .polar-chart,
+  .sale .sale-container .charts .bar-chart {
+    grid-column: 1 / span 12;
+  }
+
+  .sale .sale-container .charts .polar-chart,
+  .sale .sale-container .charts .bar-chart {
+    padding-top: max(250px, calc((100% - 1em) / 2));
+  }
+
+  .sale .sale-container .charts .bar-chart {
+    margin-top: 1.3em;
+    overflow-x: scroll;
+  }
+
+  .sale .sale-container .charts .bar-chart .chartBx {
+    min-width: 480px;
+  }
+
+  .sale .sale-container .sale-and-customers .orders,
+  .sale .sale-container .sale-and-customers .customers {
+    grid-column: 1 / span 12;
+  }
+
+  .sale .sale-container .sale-and-customers .customers {
+    margin-top: 1.5em;
+  }
+
+  .sale .sale-container .sale-and-customers .customers .user-container ul {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 450px) {
+  .sale .sale-container .sale-stats article {
+    grid-column: 1 / span 4 !important;
+  }
+
+  .sale .sale-container .sale-and-customers .orders h2,
+  .sale .sale-container .sale-and-customers .customers h2 {
+    font-size: 1.5em;
+  }
+}

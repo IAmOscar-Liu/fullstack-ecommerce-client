@@ -1,0 +1,25 @@
+fragment CommentDetailSnippet on CommentDetail {
+  id
+  content
+  createdAt
+  post_id
+  account_id
+  account_name
+  account_img_url
+  commentLikeCount
+}
+
+fragment PostDetailSnippet on PostDetail {
+  id
+  content
+  createdAt
+  product_id
+  account_id
+  account_name
+  account_img_url
+  likeCount
+  commentCount
+  comments {
+    ...CommentDetailSnippet
+  }
+}

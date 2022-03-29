@@ -1,0 +1,49 @@
+.shipping-container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: max(20px, 6vw);
+  padding-block: 1.6em 2.4em;
+}
+
+.shipping-container h1 {
+  margin-inline: auto;
+  margin-bottom: 0.3em;
+  color: #823d1b;
+  font-size: 2em;
+}
+
+.shipping-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.shipping-container > div h5 {
+  font-size: 1.2em;
+  padding: 0.2em 0.5em;
+  color: #eee;
+  border-radius: 0.3em;
+  margin-bottom: 0.6em;
+}
+
+.shipping-container .shipping h5 {
+  background: tomato;
+}
+
+.shipping-container .returns h5 {
+  background: turquoise;
+}
+
+.shipping-container > div p {
+  width: min(90%, 1000px);
+  margin-inline: auto;
+  font-size: 1.2em;
+  text-align: justify;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 450px) {
+  .shipping-container > div p {
+    font-size: 1em;
+  }
+}

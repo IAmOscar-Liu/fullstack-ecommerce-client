@@ -1,0 +1,95 @@
+.service-container {
+  display: flex;
+  flex-direction: column;
+  padding-inline: max(20px, 6vw);
+  padding-block: 1.6em 2.4em;
+}
+
+.service-container h1 {
+  margin-inline: auto;
+  margin-bottom: 0.3em;
+  color: #823d1b;
+  font-size: 2em;
+}
+
+.service-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-container > div h5 {
+  font-size: 1.2em;
+  padding: 0.2em 0.5em;
+  color: #eee;
+  border-radius: 0.3em;
+  margin-bottom: 0.6em;
+}
+
+.service-container .care h5 {
+  background: tomato;
+}
+
+.service-container .privacy h5 {
+  background: turquoise;
+}
+
+.service-container .wholesale h5 {
+  background: limegreen;
+}
+
+.service-container > div > div {
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto; 
+  display: flex;
+  gap: max(12px, 4vw);
+}
+
+.service-container > div > div > p {
+  width: 60%;
+  font-size: 1.2em;
+  align-self: center;
+  padding-inline: 1em;
+  text-align: justify;
+  color: #333;
+}
+
+.service-container > div > div .imgs {
+  width: 40%;
+}
+
+.service-container > div > div .imgs .imgBx {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.service-container > div > div .imgs .imgBx img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 1080px) {
+  .service-container > div > div {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-container > div > div p {
+    width: 100%;
+  }
+
+  .service-container > div > div .imgs {
+    width: 60%;
+    align-self: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .service-container > div > div p {
+    font-size: 1em;
+  }
+}

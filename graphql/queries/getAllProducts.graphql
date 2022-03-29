@@ -1,0 +1,15 @@
+query GetAllProducts($limit: Float, $offset: Float) {
+  getAllProducts(limit: $limit, offset: $offset) {
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}
+
+query GetProductsByIDs($product_ids: [ID!]!) {
+  getProductsByIDs(product_ids: $product_ids) {
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}

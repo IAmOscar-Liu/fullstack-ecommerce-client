@@ -1,0 +1,8 @@
+query GetNumberOfProductAllTypes{
+  getNumberOfProductAllTypes {
+    all
+    onSale
+    popular
+    topRated
+  }
+}

@@ -1,0 +1,43 @@
+.pg-btns {
+  width: 92%;
+  /* max-width: 1200px; */
+  margin-inline: auto;
+  margin-block: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+.pg-btns button {
+  border: none;
+  outline: none;
+  width: 2.4ch;
+  color: beige;
+  background: chocolate;
+  font-size: 1.2em;
+  margin-inline: 0.1em;
+  cursor: pointer;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.pg-btns button.active {
+  background: coral;
+  pointer-events: none;
+}
+
+.pg-btns button:first-of-type,
+.pg-btns button:last-of-type {
+  width: 7ch;
+}
+
+.pg-btns button:first-of-type i,
+.pg-btns button:last-of-type i {
+  font-size: 0.9em;
+  margin-inline: 6px;
+}
+
+.pg-btns span {
+  letter-spacing: 2px;
+  margin-inline: 5px;
+}
+
+

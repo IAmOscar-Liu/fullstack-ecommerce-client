@@ -1,0 +1,303 @@
+.product-header {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  padding-block: 12px;
+  background: #afa9a9;
+  z-index: 10000;
+}
+
+.product-header h1.header-h1 {
+  margin-left: max(2.5vw, 20px);
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.product-header h1.header-h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-header h1.header-h1 a i.fas {
+  margin-right: 0.3em;
+}
+
+.product-header .search-area {
+  display: flex;
+  align-items: center;
+  padding-inline: 2vw;
+  position: relative;
+}
+
+.product-header .search-area .search-box {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+  background: rgb(238, 234, 234);
+}
+
+.product-header .search-area input[type="checkbox"],
+.product-header .search-area i.fa-bars,
+.product-header .search-area i.fa-times {
+  width: 32px;
+  height: 32px;
+  display: none;
+}
+
+.product-header .search-area input[type="checkbox"] {
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+}
+
+.product-header .search-area i.fa-bars,
+.product-header .search-area i.fa-times {
+  margin-left: -32px;
+  margin-right: 12px;
+  font-size: 28px;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-header .search-area .search-box:focus-within {
+  background: rgb(255, 255, 255);
+  border: #444 solid 2px;
+}
+
+.product-header .search-area .search-box i.fas {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-header .search-area .search-box input[type="text"] {
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 32px;
+  padding-left: 40px;
+  font-size: 1.1em;
+}
+
+.product-header .search-area .result-list {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 2vw;
+  right: 0;
+  width: calc(100% - 4vw);
+  max-width: 420px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  box-shadow: 3px 3px 5px rgb(0 0 0 / 30%);
+  background: #eee;
+  display: none;
+}
+
+.product-header .search-area .result-list.show {
+  display: block;
+}
+
+.product-header .search-area .result-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product-header .search-area .result-list ul li {
+  padding-inline: 12px;
+  padding-block: 5px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 40px auto;
+  align-items: center;
+  min-height: 50px;
+  cursor: pointer;
+}
+
+.product-header .search-area .result-list ul li:hover {
+  background: #d1cbcb;
+}
+
+.product-header .search-area .result-list ul li.view-all {
+  background: rgb(228, 152, 152);
+}
+
+.product-header .search-area .result-list ul li img {
+  width: 100%;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 10px;
+  outline: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.product-header .search-area .result-list ul li i {
+  width: 100%;
+  height: 40px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-header .search-area .result-list ul li span {
+  color: #555;
+}
+
+.product-header .search-area .result-list ul li span b {
+  font-weight: 400;
+}
+
+.product-header .search-area .result-list ul li span b.highlight {
+  font-weight: bolder;
+  font-size: 1.2em;
+  color: rgb(170, 3, 3);
+}
+
+.product-header .user-panel {
+  margin-right: max(2vw, 16px);
+  display: flex;
+  align-items: center;
+}
+
+.product-header .user-panel span {
+  position: relative;
+  cursor: pointer;
+}
+
+.product-header .user-panel span:nth-of-type(1) b {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 50%;
+  transform: translate(-35%, -50%);
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+  padding: 1px 5px;
+  min-width: 2ch;
+  text-align: center;
+  font-size: 0.8em;
+  z-index: 1;
+}
+
+.product-header .user-panel span:nth-of-type(1) b.show {
+  display: block;
+}
+
+.product-header .user-panel span i.fas {
+  margin-inline: 0.3em;
+  font-size: 1.8em;
+}
+
+.product-header .user-panel span i.fa-shopping-cart {
+  position: relative;
+}
+
+.product-header .user-panel span i.fas:hover {
+  color: rgb(40, 40, 143);
+}
+
+.product-header .user-panel button {
+  margin-left: 0.3em;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  outline: none;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 2px #333 solid;
+  background-color: rgb(218, 211, 211);
+  padding-inline: 2px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  min-width: 100px;
+  max-width: 150px;
+}
+
+.product-header .user-panel button:hover {
+  transform: scale(1.1);
+}
+
+.product-header .user-panel button img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.product-header .user-panel button span {
+  font-size: 1.05em;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 800px) {
+  .product-header {
+    height: 72px;
+  }
+
+  .product-header .search-area {
+    padding-right: 0;
+    margin-right: -0.1em;
+    position: fixed;
+    top: 72px;
+    background: #989090;
+    width: 100vw;
+    height: 40px;
+    padding-right: 4vw;
+    padding-left: max(16px, 3vw);
+  }
+
+  .product-header .search-area input[type="checkbox"],
+  .product-header .search-area i.fa-bars,
+  .product-header .search-area i.fa-times {
+    display: flex;
+  }
+
+  .product-header .search-area .result-list {
+    left: calc(32px + 12px + max(16px, 3vw));
+  }
+
+  .product-header .user-panel button {
+    min-width: unset;
+    padding: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+
+  .product-header .user-panel button img {
+    margin-right: 0;
+    border-radius: unset;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-header .user-panel button span {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .product-header h1.header-h1 {
+    font-size: 1.8em;
+    margin-left: 4vw;
+  }
+
+  .product-header .user-panel span i.fas {
+    margin-inline: 0.2em;
+  }
+}

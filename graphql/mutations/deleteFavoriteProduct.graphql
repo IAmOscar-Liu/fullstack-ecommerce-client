@@ -1,0 +1,3 @@
+mutation DeleteFavoriteProduct($account_id: Float!, $product_id: Float!) {
+  deleteFavoriteProduct(account_id: $account_id, product_id: $product_id)
+}

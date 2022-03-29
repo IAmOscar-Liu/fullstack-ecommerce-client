@@ -1,0 +1,10 @@
+query GetAllCategory {
+  getAllCategory {
+    categories {
+      id
+      name
+      img_url
+      number_of_product
+    }
+  }
+}

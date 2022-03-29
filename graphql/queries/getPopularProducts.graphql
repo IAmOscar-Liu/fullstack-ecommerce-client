@@ -1,0 +1,7 @@
+query GetPopularProducts($limit: Float, $offset: Float, $total: Float)  {
+  getPopularProducts(limit: $limit, offset: $offset, total: $total) {
+    products {
+      ...ProductBriefSnippet
+    }
+  }
+}

@@ -1,0 +1,84 @@
+mutation CreateProduct(
+  $file_5: Upload
+  $file_4: Upload
+  $file_3: Upload
+  $file_2: Upload
+  $file_1: Upload!
+  $productInput: ProductInput!
+) {
+  createProduct(
+    file_5: $file_5
+    file_4: $file_4
+    file_3: $file_3
+    file_2: $file_2
+    file_1: $file_1
+    productInput: $productInput
+  ) {
+    id
+    name
+    img_url
+    price
+    isOnSale
+    isAvailable
+    description
+    addedAt
+    updateAt
+    createdBy
+  }
+}
+
+mutation UpdateProduct(
+  $file_5: Upload
+  $file_4: Upload
+  $file_3: Upload
+  $file_2: Upload
+  $file_1: Upload
+  $productUpdateInput: ProductUpdateInput!
+  $product_id: ID!
+  $account_id: ID!
+) {
+  updateProduct(
+    file_5: $file_5
+    file_4: $file_4
+    file_3: $file_3
+    file_2: $file_2
+    file_1: $file_1
+    productUpdateInput: $productUpdateInput
+    product_id: $product_id
+    account_id: $account_id
+  ) {
+    id
+    name
+    img_url
+    price
+    isOnSale
+    isAvailable
+    description
+    addedAt
+    updateAt
+    createdBy
+  }
+}
+
+mutation FreezeOrUnFreezeProduct(
+  $isAvailable: Boolean!
+  $product_id: ID!
+  $account_id: ID!
+) {
+  freezeOrUnFreezeProduct(
+    isAvailable: $isAvailable
+    product_id: $product_id
+    account_id: $account_id
+  ) {
+    id
+    name
+    img_url
+    price
+    isOnSale
+    isAvailable
+    description
+    addedAt
+    updateAt
+    createdBy
+  }
+}

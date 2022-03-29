@@ -1,0 +1,17 @@
+mutation Login($userInput: UserInput!) {
+  login(userInput: $userInput) {
+    account {
+      ...AccountSnippet
+    }
+    access_token
+  }
+}
+
+mutation ProviderLogin($providerInput: ProviderInput!) {
+  providerLogin(providerInput: $providerInput) {
+    account {
+      ...AccountSnippet
+    }
+    access_token
+  }
+}

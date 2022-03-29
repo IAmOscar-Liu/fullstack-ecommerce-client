@@ -1,0 +1,8 @@
+query GetMostCommentsBlog($limit: Float, $offset: Float) {
+  getMostCommentsBlog(limit: $limit, offset: $offset) {
+    blogs {
+      ...BlogDetailSnippet
+    }
+    hasMore
+  }
+}

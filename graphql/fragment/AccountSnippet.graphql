@@ -1,0 +1,13 @@
+fragment AccountSnippet on Account {
+  id
+  name
+  img_url
+  email
+  phone
+  address
+  description
+  createdAt
+  updateAt
+  provider
+  provider_id
+}

@@ -1,0 +1,186 @@
+.cart {
+  background: #f1f0ed;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.cart h1.cart-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  margin-bottom: 1em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg) rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.cart .cart-header-btns {
+  width: 92%;
+  margin-inline: auto;
+  margin-bottom: 1.5em;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid rgb(198 48 75);
+}
+
+.cart .cart-header-btns button,
+.cart .cart-header-btns p {
+  font-size: 1.2em;
+  padding: 0.2em 0.6em;
+  cursor: pointer;
+}
+
+.cart .cart-header-btns button {
+  margin-right: auto;
+  border: none;
+  outline: none;
+  color: #eee;
+  border-radius: 10px;
+  background: #ea3656;
+  transition: transform 0.5s;
+  box-shadow: 2px 3px 6px rgb(0 0 0 / 50%);
+  transition: transform 0.5s;
+}
+
+.cart .cart-header-btns button:hover {
+  transform: scale(1.1);
+}
+
+.cart .cart-header-btns p {
+  background: transparent;
+  color: chocolate;
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.cart .cart-header-btns button:hover {
+  transform: scale(1, 1, 1);
+}
+
+.cart .cart-header-btns button i {
+  margin-right: 10px;
+}
+
+.cart .cart-utils {
+  width: 92%;
+  margin-inline: auto;
+  max-width: 1000px;
+  margin-top: 2.5em;
+  padding-top: 0.7em;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.cart .cart-utils .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.cart .cart-utils .detail > b {
+  font-size: 1.4em;
+  color: #333;
+  font-weight: 500;
+}
+
+.cart .cart-utils .detail > ul {
+  /* margin-inline: auto;
+  width: 90%; */
+  padding-inline: 25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.cart .cart-utils .detail > ul li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cart .cart-utils .detail > ul li span:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.cart .cart-utils .detail > ul li span:nth-of-type(2) {
+  font-size: 1.2em;
+}
+
+.cart .cart-utils .detail > ul li span:nth-of-type(1) b {
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart .cart-utils .detail > ul li span:nth-of-type(1) small {
+  font-size: 1em;
+  color: #777;
+}
+
+.cart .cart-utils .cart-btns {
+  display: flex;
+  gap: 16px 1em;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cart .cart-utils .cart-btns p {
+  font-size: 1.4em;
+  color: #333;
+  margin-right: auto;
+}
+
+.cart .cart-utils .cart-btns div button {
+  outline: none;
+  border: none;
+  color: #eee;
+  font-size: 1.1em;
+  border-radius: 8px;
+  background: #2c53c3;
+  padding: 0.3em 0.8em;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 50%);
+  transition: 0.5s;
+}
+
+.cart .cart-utils .cart-btns div button:hover {
+  transform: scale(1, 1.1);
+}
+
+.cart .cart-utils .cart-btns div button + button {
+  margin-left: 12px;
+  background: #13d46a;
+}
+
+.cart .cart-utils .cart-btns div button i {
+  margin-right: 10px;
+}
+
+@media (max-width: 450px) {
+  .cart .cart-header-btns,
+  .cart .cart-utils {
+    width: 80%;
+  }
+
+  .cart .cart-header-btns {
+    font-size: 0.9em;
+  }
+
+  .cart .cart-utils .cart-btns div {
+    font-size: 0.98em;
+  }
+}

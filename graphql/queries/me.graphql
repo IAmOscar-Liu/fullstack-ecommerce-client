@@ -1,0 +1,36 @@
+query me {
+  me {
+    account {
+      ...AccountSnippet
+    }
+    access_token
+  }
+}
+
+query OtherUser($account_id: ID!) {
+  otherUser(account_id: $account_id) {
+    account {
+      ...AccountSnippet
+    }
+  }
+}
+
+query GetNumOfPostAndBlog($account_id: ID!) {
+  getNumOfPostAndBlog(account_id: $account_id) {
+    total_post
+    total_blog
+  }
+}
+
+query GetRecentAccount($offset: Float, $limit: Float) {
+  getRecentAccount(offset: $offset, limit: $limit) {
+    accounts {
+      id
+      name
+      img_url
+      createdAt
+      updateAt
+    }
+    hasMore
+  }
+}

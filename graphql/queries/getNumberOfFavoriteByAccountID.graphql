@@ -1,0 +1,3 @@
+query GetNumberOfFavoriteByAccountID($account_id: Float!) {
+  getNumberOfFavoriteByAccountID(account_id: $account_id)
+}

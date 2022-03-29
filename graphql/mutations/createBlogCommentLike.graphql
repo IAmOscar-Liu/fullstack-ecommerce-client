@@ -1,0 +1,7 @@
+mutation CreateBlogCommentLike($blogCommentLikeInput: BlogCommentLikeInput!){
+  createBlogCommentLike(
+    blogCommentLikeInput: $blogCommentLikeInput
+  ) {
+    blogCommentLike
+  }
+}

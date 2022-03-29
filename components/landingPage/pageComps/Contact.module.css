@@ -1,0 +1,373 @@
+.contact {
+  background: #ccefcf;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 6em;
+}
+
+.contact > * {
+  margin-inline: auto;
+}
+
+.contact h1.contact-h1 {
+  font-size: 2.5em;
+  color: #32552e;
+  margin-block: 1em 0.5em;
+  text-align: center;
+}
+
+.contact h1.contact-h1::before {
+  content: "";
+  position: absolute;
+  background: #32552e;
+  width: 80%;
+  height: 3px;
+  left: 10%;
+  bottom: -3px;
+}
+
+.contact p.contact-p {
+  font-size: 1.4em;
+  width: min(80%, 1200px);
+  color: #322e6f;
+  text-align: center;
+}
+
+.contact .contact-container {
+  margin-top: 2.5em;
+  width: min(80%, 1000px);
+  flex-grow: 1;
+  display: flex;
+}
+
+.contact .contact-container article {
+  width: calc(60% + 10vw);
+  background: linear-gradient(315deg, #eded27, #8dde8d);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10vw;
+}
+
+.contact .contact-container article::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(315deg, #eded27, #8dde8d);
+  filter: blur(25px);
+  transform: translateY(30px) scale(0.9);
+}
+
+.contact .contact-container article form {
+  z-index: 1;
+  transform: rotate(0);
+  width: 75%;
+  margin-block: 2em;
+}
+
+.contact .contact-container article form > * {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3vw;
+}
+
+.contact .contact-container article form > h2,
+.contact .contact-container article form > .message {
+  grid-template-columns: 1fr;
+}
+
+.contact .contact-container article form > h2 {
+  font-size: 2em;
+  color: rgb(13, 67, 17);
+  margin-bottom: 0.6em;
+}
+
+.contact .contact-container article form p {
+  position: relative;
+  margin-block: 1.1em;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+.contact .contact-container article form p::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #444;
+}
+
+.contact .contact-container article form p input,
+.contact .contact-container article form p textarea {
+  outline: none;
+  border: none;
+  background: transparent;
+  resize: none;
+  width: 100%;
+  font-size: 1em;
+}
+
+.contact .contact-container article form p input:focus + label,
+.contact .contact-container article form p input:valid + label,
+.contact .contact-container article form p textarea:focus + label,
+.contact .contact-container article form p textarea:valid + label {
+  top: -1.4em;
+  color: #32552e;
+  font-weight: 600;
+}
+
+.contact .contact-container article form p label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #444;
+  transition: 0.5s;
+  cursor: text;
+}
+
+.contact .contact-container article form input[type="submit"] {
+  outline: none;
+  border: none;
+  background: rgb(13, 67, 17);
+  color: #fff;
+  font-size: 1.2em;
+  padding: 0.3em 1.2em;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 0.3em;
+  transition: transform 0.5s;
+}
+
+.contact .contact-container article form input[type="submit"]:hover {
+  transform: scale(1.1);
+}
+
+.contact .contact-container .map-container {
+  margin-left: -10vw;
+  width: 40%;
+  /*background-color: rgba(0, 0, 0, 0.5);*/
+  z-index: 1;
+  display: flex;
+}
+
+.contact .contact-container .map-container > .mapBox {
+  width: 100%;
+  height: 80%;
+  margin: auto;
+  background: rgb(13, 67, 17);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2em max(12px, 3vw) 2em max(12px, 3vw);
+  color: #fff;
+}
+
+.contact .contact-container .map-container > .mapBox input[type="checkbox"] {
+  display: none;
+}
+
+.contact .contact-container .map-container > .mapBox .contact-toggle-btns {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 2px);
+}
+
+.contact
+  .contact-container
+  .map-container
+  > .mapBox
+  .contact-toggle-btns
+  label {
+  border: 3px solid rgb(13, 67, 17);
+  background: #fff;
+  font-size: 1.1em;
+  padding: 0.2em 0.8em;
+  color: rgb(13, 67, 17);
+  cursor: pointer;
+  border-top-left-radius: 10px;
+}
+
+.contact
+  .contact-container
+  .map-container
+  > .mapBox
+  .contact-toggle-btns
+  label
+  + label {
+  border-top-left-radius: 0;
+  border-top-right-radius: 10px;
+}
+
+.contact
+  .contact-container
+  .map-container
+  > .mapBox
+  input[type="checkbox"]:not(:checked)
+  ~ .contact-toggle-btns
+  label:nth-of-type(1),
+.contact
+  .contact-container
+  .map-container
+  > .mapBox
+  input[type="checkbox"]:checked
+  ~ .contact-toggle-btns
+  label:nth-of-type(2) {
+  color: #fff;
+  background: rgb(13, 67, 17);
+  pointer-events: none;
+}
+
+.contact .contact-container .map-container > .mapBox iframe {
+  position: absolute;
+  background: black;
+  /*z-index: 20;*/
+  left: 5px;
+  top: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  display: none;
+}
+
+.contact
+  .contact-container
+  .map-container
+  > .mapBox
+  input[type="checkbox"]:checked
+  ~ iframe {
+  display: block;
+}
+
+.contact .contact-container .map-container > .mapBox h3 {
+  font-size: 1.4em;
+  margin-bottom: 0.7em;
+}
+
+.contact .contact-container .map-container > .mapBox p {
+  font-size: 1.1em;
+  display: flex;
+  margin-bottom: 0.5em;
+  width: 100%;
+  overflow: hidden;
+}
+
+.contact .contact-container .map-container > .mapBox p i {
+  font-size: 1.2em;
+  width: 1.2em;
+  margin-right: 0.5em;
+  transform: translateY(0.2em);
+}
+
+.contact .contact-container .map-container > .mapBox p span {
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact .contact-container .map-container > .mapBox .social-icons {
+  font-size: 2em;
+}
+
+.contact .contact-container .map-container > .mapBox .social-icons i.fab {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.contact .contact-container .map-container > .mapBox .social-icons i.fab:hover {
+  transform: scale(1.2);
+  color: lightgreen;
+}
+
+.contact
+  .contact-container
+  .map-container
+  > .mapBox
+  .social-icons
+  i.fab
+  + i.fab {
+  margin-left: 12px;
+}
+
+@media (max-width: 1080px) {
+  .contact .contact-container article {
+    width: calc(50% + 10vw);
+  }
+
+  .contact .contact-container .map-container {
+    width: 50%;
+  }
+
+  .contact .contact-container article form > .name,
+  .contact .contact-container article form > .email-and-phone {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 840px) {
+  .contact {
+    padding-bottom: 3em;
+  }
+
+  .contact .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact .contact-container article,
+  .contact .contact-container .map-container {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .contact .contact-container article {
+    padding-right: 0;
+  }
+
+  .contact .contact-container .map-container {
+    margin-left: 0;
+    margin-top: 4em;
+  }
+
+  .contact .contact-container .map-container .mapBox {
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 450px) {
+  .contact {
+    padding-bottom: 2em;
+  }
+
+  .contact h1.contact-h1 {
+    font-size: 2em;
+  }
+
+  .contact p.contact-p {
+    font-size: 1em;
+  }
+
+  .contact .contact-container article form {
+    font-size: 0.8em;
+  }
+
+  .contact .contact-container article form > h2 {
+    font-size: 1.6em;
+  }
+
+  .contact .contact-container .map-container > .mapBox {
+    font-size: 0.8em;
+  }
+
+  .contact .contact-container .map-container > .mapBox .social-icons {
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+}
