@@ -1,0 +1,34 @@
+.setting {
+  background: #f1f0ed;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2em;
+}
+
+.setting h1.setting-list-h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #eee;
+  margin-bottom: 1em;
+  padding-block: 8vmin;
+  background: url(/h1_background.jpg) rgb(0, 0, 0, 0.5);
+  background-position-y: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+.setting .setting-container {
+  width: 90%;
+  max-width: 1000px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.setting .setting-container h4 {
+  font-size: 1.8em;
+  color: #654c43;
+  margin: auto;
+}

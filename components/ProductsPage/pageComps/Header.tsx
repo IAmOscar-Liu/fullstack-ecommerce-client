@@ -226,7 +226,7 @@ const Header: React.FC<Props> = ({ sidebarOpen, toggleSidebarOpen }) => {
             className={`fas fa-shopping-cart ${styles.fas} ${styles["fa-shopping-cart"]}`}
           ></i>
         </span>
-        <span>
+        <span onClick={() => router.push("/main/personal/setting")}>
           <i className={`fas fa-cog ${styles.fas}`}></i>
         </span>
         <button
