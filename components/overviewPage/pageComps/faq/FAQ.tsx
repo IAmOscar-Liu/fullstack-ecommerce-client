@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import styles from "./FAQ.module.css";
 import { FAQs } from "../../../../dummyData/FAQ";
 import { HTMLAttributes, useEffect } from "react";

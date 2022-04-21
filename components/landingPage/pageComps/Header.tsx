@@ -1,14 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useRouter } from "next/router";
 import React, {
   HTMLAttributes,
   useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
 } from "react";
 import { useMeQuery } from "../../../generated/graphql";
 import { isServer } from "../../../utils/isServer";
 import styles from "./Header.module.css";
+import Link from "next/link";
 
 interface Props {}
 
@@ -128,10 +131,12 @@ const Header: React.FC<Props> = () => {
   return (
     <header className={styles.header} ref={headerRef}>
       <h1>
-        <a href="/#home" onClick={(e) => handleNavClick(0, e)}>
-          <i className="fas fa-pepper-hot"></i>
-          Banana
-        </a>
+        <Link href={"/#home"}>
+          <a onClick={(e) => handleNavClick(0, e)}>
+            <i className="fas fa-pepper-hot"></i>
+            Banana
+          </a>
+        </Link>
       </h1>
       <div className="spacer-1"></div>
       <nav className={styles.nav}>
@@ -144,13 +149,14 @@ const Header: React.FC<Props> = () => {
         <ul>
           {navs.map((nav, i) => (
             <li style={{ "--i": i } as HTMLAttributes<HTMLLIElement>} key={nav}>
-              <a
-                href={"/#" + nav}
-                className={navIdx === i ? styles.active : ""}
-                onClick={(e) => handleNavClick(i, e)}
-              >
-                {nav}
-              </a>
+              <Link href={"/#" + nav}>
+                <a
+                  className={navIdx === i ? styles.active : ""}
+                  onClick={(e) => handleNavClick(i, e)}
+                >
+                  {nav}
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -166,7 +172,11 @@ const Header: React.FC<Props> = () => {
           }
         >
           <img
-            src={data?.me.account?.img_url ? data.me.account.img_url : "/images/default_user.png"}
+            src={
+              data?.me.account?.img_url
+                ? data.me.account.img_url
+                : "/images/default_user.png"
+            }
             alt=""
           />
           <span>{data?.me.account?.name ? data.me.account.name : "Login"}</span>

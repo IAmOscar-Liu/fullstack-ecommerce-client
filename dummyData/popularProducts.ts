@@ -11,6 +11,7 @@ export const popularProducts: ProductBrief[] = [
     price: 119.33000183105469,
     rating_times: 1,
     total_order_count: 2,
+    isAvailable: true,
     __typename: "ProductBrief",
   },
   {
@@ -23,6 +24,7 @@ export const popularProducts: ProductBrief[] = [
     price: 116.94999694824219,
     rating_times: 0,
     total_order_count: 2,
+    isAvailable: true,
     __typename: "ProductBrief",
   },
   {
@@ -35,6 +37,7 @@ export const popularProducts: ProductBrief[] = [
     price: 786.1599731445312,
     rating_times: 2,
     total_order_count: 1,
+    isAvailable: true,
     __typename: "ProductBrief",
   },
   {
@@ -47,6 +50,7 @@ export const popularProducts: ProductBrief[] = [
     price: 7.400000095367432,
     rating_times: 0,
     total_order_count: 0,
+    isAvailable: true,
     __typename: "ProductBrief",
   },
   {
@@ -59,6 +63,7 @@ export const popularProducts: ProductBrief[] = [
     price: 59.9900016784668,
     rating_times: 0,
     total_order_count: 0,
+    isAvailable: true,
     __typename: "ProductBrief",
   },
   {
@@ -71,6 +76,7 @@ export const popularProducts: ProductBrief[] = [
     price: 99.98999786376953,
     rating_times: 0,
     total_order_count: 0,
+    isAvailable: true,
     __typename: "ProductBrief",
   },
 ];

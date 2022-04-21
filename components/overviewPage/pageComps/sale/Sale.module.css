@@ -163,7 +163,7 @@
 .sale .sale-container .sale-and-customers .orders .order-container {
   margin-bottom: 1.2em;
   color: #333;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .sale .sale-container .sale-and-customers .orders .order-container ul {
@@ -399,7 +399,7 @@
 
 .sale .sale-container .sale-and-customers .customers .user-container {
   margin-block: 0.6em 1.2em;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .sale .sale-container .sale-and-customers .customers .user-container ul {
@@ -524,7 +524,7 @@
 
   .sale .sale-container .charts .bar-chart {
     margin-top: 1.3em;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   .sale .sale-container .charts .bar-chart .chartBx {

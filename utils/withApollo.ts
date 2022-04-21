@@ -2,21 +2,25 @@ import {
   ApolloClient,
   ApolloLink,
   InMemoryCache,
-  InMemoryCacheConfig,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
 import { setContext } from "@apollo/client/link/context";
 import jwtDecode from "jwt-decode";
 import { NextPageContext } from "next";
 import { createWithApollo } from "./createWithApollo";
+import getConfig from "next/config";
+
 
 // const cacheConfig: InMemoryCacheConfig = {
 
 // }
 
 export const getStandAloneApolloClient = () => {
+  const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
+  const apiUrl = serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl;
+
   return new ApolloClient({
-    uri: process.env.NEXT_PUBLIC_API_URL as string,
+    uri: apiUrl + "/api/graphql",
     cache: new InMemoryCache(),
   });
 };
@@ -43,7 +47,10 @@ const getAccessToken = async () => {
   try {
     if (isTokenValidOrUndefined(access_token)) return access_token;
 
-    const data = await fetch("http://localhost:4000/refresh_token", {
+    const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
+    const apiUrl = serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl;
+
+    const data = await fetch(apiUrl + "/api/refresh_token", {
       method: "POST",
       credentials: "include",
     });
@@ -62,8 +69,12 @@ const getAccessToken = async () => {
 };
 
 const createClient = (ctx: NextPageContext) => {
+
+  const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
+  const apiUrl = serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl;
+
   const uploadLink = createUploadLink({
-    uri: process.env.NEXT_PUBLIC_API_URL as string,
+    uri: apiUrl + "/api/graphql",
     credentials: "include",
   });
 
@@ -79,7 +90,7 @@ const createClient = (ctx: NextPageContext) => {
 
   return new ApolloClient({
     link: ApolloLink.from([asyncAuthLink, uploadLink]),
-    connectToDevTools: process.env.NODE_ENV === "development",
+    connectToDevTools: true, //process.env.NODE_ENV === "development",
     cache: new InMemoryCache(),
   });
 };
