@@ -4,6 +4,7 @@ services:
     build:
       context: .
       network: fullstack-ecommerce-server_default
+    image: karta0989006/ecommerce-client  
     ports:
       - 3000:3000
     networks:
