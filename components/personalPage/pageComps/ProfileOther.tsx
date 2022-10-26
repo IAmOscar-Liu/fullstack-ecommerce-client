@@ -14,11 +14,11 @@ import { getDate } from "../../../utils/getDate";
 import { ProductArticle } from "../../ProductsPage";
 import styles from "./Profile.module.css";
 
-interface Props {
+export interface ProfileOtherProps {
   account_id: string;
 }
 
-const ProfileOther: React.FC<Props> = ({ account_id }) => {
+const ProfileOther: React.FC<ProfileOtherProps> = ({ account_id }) => {
   const [viewDescription, toggleViewDescription] = useState<boolean>(false);
   const router = useRouter();
   const { data: meQuery, loading } = useMeQuery();

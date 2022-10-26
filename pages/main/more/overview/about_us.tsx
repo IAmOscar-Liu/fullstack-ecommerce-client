@@ -1,17 +1,22 @@
-import ProductsLayout from "../../../../layouts/ProductsLayout";
-import OverviewLayout from "../../../../layouts/OverviewLayout";
+import { withProductsLayout } from "../../../../layouts/ProductsLayout";
+import { withOverviewLayout } from "../../../../layouts/OverviewLayout";
 import { AboutUs as US } from "../../../../components/overviewPage";
-import { withApollo } from "../../../../utils/withApollo";
 
-const AboutUs = () => {
-  return (
-    <ProductsLayout>
-      <OverviewLayout>
-        <US />
-      </OverviewLayout>
-    </ProductsLayout>
-  );
+const MyOverviewLayout = () => {
+  const OverviewLayout = withOverviewLayout({
+    component: US,
+  });
+
+  return <OverviewLayout />;
 };
 
-// export default AboutUs;
-export default withApollo({ ssr: true })(AboutUs);
+const AboutUs = () => {
+  const ProductsLayout = withProductsLayout({
+    component: MyOverviewLayout,
+  });
+
+  return <ProductsLayout />;
+};
+
+export default AboutUs;
+// export default withApollo({ ssr: true })(AboutUs);

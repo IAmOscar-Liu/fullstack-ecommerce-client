@@ -1,5 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { SingleProduct as Product } from "../../../../components/ProductsPage";
+import {
+  SingleProduct as Product,
+  SingleProductProps,
+} from "../../../../components/ProductsPage";
 import {
   GetAllProductsDocument,
   GetAllProductsQuery,
@@ -7,28 +10,25 @@ import {
   GetPostsByProductIdDocument,
   GetProductDetailDocument,
 } from "../../../../generated/graphql";
-import ProductsLayout from "../../../../layouts/ProductsLayout";
-import {
-  getStandAloneApolloClient,
-  withApollo,
-} from "../../../../utils/withApollo";
+import { withProductsLayout } from "../../../../layouts/ProductsLayout";
+import { initializeApollo } from "../../../../utils/apollo";
 
 interface Props {
   product_id: number;
 }
 
 const SingleProduct = ({ product_id }: Props) => {
-  return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <Product product_id={product_id} />
-      </main>
-    </ProductsLayout>
-  );
+  const ProductsLayout = withProductsLayout<SingleProductProps>({
+    component: Product,
+    className: "spacer-1 main-products",
+  });
+
+  return <ProductsLayout product_id={product_id} />;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = getStandAloneApolloClient();
+  // const client = getStandAloneApolloClient();
+  const client = initializeApollo({ ssr: false });
   const query = await client.query<GetAllProductsQuery>({
     query: GetAllProductsDocument,
     variables: { limit: 50 },
@@ -48,7 +48,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const product_id = parseInt(params.product_id as unknown as string);
 
-  const client = getStandAloneApolloClient();
+  // const client = getStandAloneApolloClient();
+  const client = initializeApollo({ ssr: false });
 
   await Promise.allSettled([
     client.query({
@@ -82,10 +83,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 60,
     props: {
       product_id,
-      apolloState: client.cache.extract(),
+      // apolloState: client.cache.extract(),
+      initialApolloState: client.cache.extract(),
+      ssr: false,
     },
   };
 };
 
-// export default SingleProduct;
-export default withApollo({ ssr: false })(SingleProduct);
+export default SingleProduct;
+// export default withApollo({ ssr: false })(SingleProduct);

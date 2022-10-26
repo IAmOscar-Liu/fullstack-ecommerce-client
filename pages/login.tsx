@@ -1,19 +1,13 @@
-import LandingLayout from "../layouts/LandingLayout";
+import { withLandingLayout } from "../layouts/LandingLayout";
 import { Login as MyLogin } from "../components/landingPage";
-import { withApollo } from "../utils/withApollo";
 
 const Login = () => {
-  return (
-    <LandingLayout>
-      <main className="spacer-1">
-        <MyLogin />
-      </main>
-    </LandingLayout>
-  );
+  const LandingLayout = withLandingLayout({
+    component: MyLogin,
+    className: "spacer-1",
+  });
+
+  return <LandingLayout />;
 };
 
-// Login.getLayout = getLayout;
-
-// export default Login;
-
-export default withApollo({ ssr: false })(Login);
+export default Login;

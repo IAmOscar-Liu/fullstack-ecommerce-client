@@ -1,17 +1,22 @@
-import ProductsLayout from "../../../../../layouts/ProductsLayout";
-import OverviewLayout from "../../../../../layouts/OverviewLayout";
+import { withProductsLayout } from "../../../../../layouts/ProductsLayout";
+import { withOverviewLayout } from "../../../../../layouts/OverviewLayout";
 import { Notice as MyNotice } from "../../../../../components/overviewPage";
-import { withApollo } from "../../../../../utils/withApollo";
 
-const Notice = () => {
-  return (
-    <ProductsLayout>
-      <OverviewLayout>
-        <MyNotice />
-      </OverviewLayout>
-    </ProductsLayout>
-  );
+const MyOverviewLayout = () => {
+  const OverviewLayout = withOverviewLayout({
+    component: MyNotice,
+  });
+
+  return <OverviewLayout />;
 };
 
-// export default Notice;
-export default withApollo({ ssr: true })(Notice);
+const Notice = () => {
+  const ProductsLayout = withProductsLayout({
+    component: MyOverviewLayout,
+  });
+
+  return <ProductsLayout />;
+};
+
+export default Notice;
+// export default withApollo({ ssr: true })(Notice);

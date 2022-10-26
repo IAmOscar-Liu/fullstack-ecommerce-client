@@ -14,12 +14,9 @@ import {
   useGetAllCategoryQuery,
   useGetProductByCategoryIdQuery,
 } from "../../../generated/graphql";
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import gridStyles from "../../../styles/ProductGrid.module.css";
-import {
-  getStandAloneApolloClient,
-  withApollo,
-} from "../../../utils/withApollo";
+import { initializeApollo } from "../../../utils/apollo";
 
 const pagePerLimit = parseInt(process.env.PRODUCT_PER_PAGE_LIMIT) || 10;
 
@@ -28,13 +25,21 @@ interface Props {
   category_name: string;
 }
 
-const Pagination: React.FC<{
+interface PaginationProps {
   category_id: number;
   category_name: string;
   pathname: string;
   page: number;
   totalProducts: number;
-}> = ({ category_id, category_name, page, pathname, totalProducts }) => {
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  category_id,
+  category_name,
+  page,
+  pathname,
+  totalProducts,
+}) => {
   const { data, loading, error } = useGetProductByCategoryIdQuery({
     variables: {
       category_id,
@@ -78,54 +83,29 @@ const Pagination: React.FC<{
 const Category = ({ category_name, category_id }: Props) => {
   const { data: allCategories } = useGetAllCategoryQuery();
   const router = useRouter();
-
-  // console.log(router);
+  const ProductLayout = withProductsLayout<PaginationProps>({
+    component: Pagination,
+    className: "spacer-1 main-products",
+  });
 
   return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <Pagination
-          category_id={category_id}
-          category_name={category_name}
-          page={parseInt(router.query.page as string) || 1}
-          pathname={router.asPath.split('?')[0]}
-          totalProducts={
-            allCategories?.getAllCategory.categories.find(
-              (cg) => cg.id === category_id + ""
-            ).number_of_product ?? 0
-          }
-        />
-      </main>
-    </ProductsLayout>
+    <ProductLayout
+      category_id={category_id}
+      category_name={category_name}
+      page={parseInt(router.query.page as string) || 1}
+      pathname={router.asPath.split("?")[0]}
+      totalProducts={
+        allCategories?.getAllCategory.categories.find(
+          (cg) => cg.id === category_id + ""
+        ).number_of_product ?? 0
+      }
+    />
   );
 };
 
-// const Category = ({ category_name, category_id }: Props) => {
-//   // console.log("category page - ", category_id);
-//   const { data, loading, error } = useGetProductByCategoryIdQuery({
-//     variables: { category_id },
-//   });
-
-//   const returnData = () => {
-//     if (loading) return <div>Loading...</div>;
-//     else if (error) return <div>Something went wrong - {error.message}</div>;
-//     return (
-//       <Products
-//         title={category_name}
-//         products={data.getProductByCategoryID.products as ProductBrief[]}
-//       />
-//     );
-//   };
-
-//   return (
-//     <ProductsLayout>
-//       <main className="spacer-1 main-products">{returnData()}</main>
-//     </ProductsLayout>
-//   );
-// };
-
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = getStandAloneApolloClient();
+  // const client = getStandAloneApolloClient();
+  const client = initializeApollo({ ssr: true });
   const query = await client.query<GetAllCategoryQuery>({
     query: GetAllCategoryDocument,
   });
@@ -155,7 +135,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   // console.log("params - ", params.category);
   // console.log("category_id", category_id);
 
-  const client = getStandAloneApolloClient();
+  const client = initializeApollo({ ssr: true });
+  // const client = getStandAloneApolloClient();
   await client.query<
     GetProductByCategoryIdQuery,
     GetProductByCategoryIdQueryVariables
@@ -173,13 +154,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       category_id,
       category_name,
-      apolloState: client.cache.extract(),
+      // apolloState: client.cache.extract(),
+      initialApolloState: client.cache.extract(),
+      ssr: true,
     },
   };
 };
 
-// Category.getLayout = getLayout;
+export default Category;
 
-// export default Category;
-
-export default withApollo({ ssr: false })(Category);
+// export default withApollo({ ssr: false })(Category);

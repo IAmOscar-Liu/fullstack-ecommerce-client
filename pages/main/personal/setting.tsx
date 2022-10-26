@@ -1,16 +1,14 @@
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import { Setting as MySetting } from "../../../components/personalPage";
-import { withApollo } from "../../../utils/withApollo";
 
 const Favorite = () => {
-  return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <MySetting />
-      </main>
-    </ProductsLayout>
-  );
+  const ProductsLayout = withProductsLayout({
+    component: MySetting,
+    className: "spacer-1 main-products",
+  });
+
+  return <ProductsLayout />;
 };
 
-// export default Favorite;
-export default withApollo({ ssr: false })(Favorite);
+export default Favorite;
+// export default withApollo({ ssr: false })(Favorite);

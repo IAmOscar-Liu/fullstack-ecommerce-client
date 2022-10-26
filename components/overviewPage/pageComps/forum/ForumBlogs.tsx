@@ -145,6 +145,7 @@ const ForumBlogs: React.FC<Props> = ({
 
   useEffect(() => {
     const handleReachBottom = useDebounce(() => {
+      // console.log("Scrolling");
       // console.log("blogs length: ", blogData?.blogs.length);
       // console.log("has more blogs ? ", blogData?.hasMore);
       // console.log("document.body.offsetHeight = ", document.body.offsetHeight);

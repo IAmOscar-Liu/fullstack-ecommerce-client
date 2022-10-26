@@ -1,17 +1,22 @@
-import ProductsLayout from "../../../../layouts/ProductsLayout";
-import OverviewLayout from "../../../../layouts/OverviewLayout";
+import { withProductsLayout } from "../../../../layouts/ProductsLayout";
+import { withOverviewLayout } from "../../../../layouts/OverviewLayout";
 import { Payment } from "../../../../components/overviewPage";
-import { withApollo } from "../../../../utils/withApollo";
 
-const PaymentMethods = () => {
-  return (
-    <ProductsLayout>
-      <OverviewLayout>
-        <Payment />
-      </OverviewLayout>
-    </ProductsLayout>
-  );
+const MyOverviewLayout = () => {
+  const OverviewLayout = withOverviewLayout({
+    component: Payment,
+  });
+
+  return <OverviewLayout />;
 };
 
-// export default PaymentMethods;
-export default withApollo({ ssr: true })(PaymentMethods);
+const PaymentMethods = () => {
+  const ProductsLayout = withProductsLayout({
+    component: MyOverviewLayout,
+  });
+
+  return <ProductsLayout />;
+};
+
+export default PaymentMethods;
+// export default withApollo({ ssr: true })(PaymentMethods);

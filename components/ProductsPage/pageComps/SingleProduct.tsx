@@ -1,6 +1,7 @@
 import { useApolloClient } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import { SingleProductProps } from "..";
 import {
   GetAllCategoryDocument,
   GetFavoriteByAccountIdDocument,
@@ -32,11 +33,7 @@ import RatingPopup from "./RatingPopup";
 import styles from "./SingleProduct.module.css";
 import SingleProductPost from "./SingleProductPost";
 
-interface Props {
-  product_id: number;
-}
-
-const Product: React.FC<Props> = ({ product_id }) => {
+const Product: React.FC<SingleProductProps> = ({ product_id }) => {
   const [quantity, setQuantity] = useState<number>(1);
   const [showPosts, toggleShowPosts] = useState<boolean>(false);
   const [postSortType, setPostSortType] = useState<string>(PostSortType[0]);

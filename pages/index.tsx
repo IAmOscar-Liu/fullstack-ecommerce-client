@@ -1,4 +1,4 @@
-import LandingLayout from "../layouts/LandingLayout";
+import { withLandingLayout } from "../layouts/LandingLayout";
 import {
   Home as MyHome,
   About,
@@ -6,24 +6,26 @@ import {
   Members,
   Contact,
 } from "../components/landingPage";
-import { withApollo } from "../utils/withApollo";
+
+const Children: React.FC = () => (
+  <>
+    <MyHome />
+    <About />
+    <Products />
+    <Members />
+    <Contact />
+  </>
+);
 
 const Home = () => {
-  return (
-    <LandingLayout>
-      <main className="main spacer-1">
-        <MyHome />
-        <About />
-        <Products />
-        <Members />
-        <Contact />
-      </main>
-    </LandingLayout>
-  );
+  const LandingLayout = withLandingLayout({
+    component: Children,
+    className: "main spacer-1",
+  });
+
+  return <LandingLayout />;
 };
 
-// Home.getLayout = getLayout;
+export default Home;
 
-// export default Home;
-
-export default withApollo({ ssr: true })(Home);
+// export default withApollo({ ssr: true })(Home);

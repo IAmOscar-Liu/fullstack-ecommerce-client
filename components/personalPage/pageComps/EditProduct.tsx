@@ -19,11 +19,7 @@ import {
   validateUpdatedProductData,
 } from "../../../utils/validateNewProductData";
 import styles from "./AddProduct.module.css";
-import { Loading } from "..";
-
-interface Props {
-  product_id: string;
-}
+import { EditProps, Loading } from "..";
 
 const defaultProductInfo: ProductForm = {
   title: "",
@@ -35,7 +31,7 @@ const defaultProductInfo: ProductForm = {
   isOnSale: false,
 };
 
-const EditProduct: React.FC<Props> = ({ product_id }) => {
+const EditProduct: React.FC<EditProps> = ({ product_id }) => {
   const { data: allCategories } = useGetAllCategoryQuery();
   const { data: meQuery, loading } = useMeQuery();
   const { data: productDetail } = useGetProductDetailQuery({

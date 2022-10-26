@@ -1,17 +1,16 @@
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import { Success as MySucess } from "../../../components/personalPage";
-import { withApollo } from "../../../utils/withApollo";
+// import { withApollo } from "../../../utils/withApollo";
 
 const Success = () => {
-  return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <MySucess />
-      </main>
-    </ProductsLayout>
-  );
+  const ProductsLayout = withProductsLayout({
+    component: MySucess,
+    className: "spacer-1 main-products",
+  });
+
+  return <ProductsLayout />;
 };
 
-// export default Profile;
+export default Success;
 
-export default withApollo({ ssr: false })(Success);
+// export default withApollo({ ssr: false })(Success);

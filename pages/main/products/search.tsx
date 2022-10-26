@@ -1,24 +1,29 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import {
   PaginationBtn,
   ProductArticle,
 } from "../../../components/ProductsPage";
 import styles from "../../../components/ProductsPage/pageComps/Products.module.css";
-import { ProductBrief } from "../../../generated/graphql";
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import gridStyles from "../../../styles/ProductGrid.module.css";
 import { useAccount } from "../../../utils/AccountProvider";
-import { withApollo } from "../../../utils/withApollo";
 
 const pagePerLimit = parseInt(process.env.PRODUCT_PER_PAGE_LIMIT) || 10;
 
-const Pagination: React.FC<{
-  allResults: ProductBrief[];
+interface PaginationProps {
   pathname: string;
   page: number;
   searchTerm: string;
-}> = ({ page, pathname, searchTerm, allResults }) => {
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  page,
+  pathname,
+  searchTerm,
+}) => {
+  const { accountValue } = useAccount();
+  const allResults = accountValue.searchResult.map((p) => p.data);
+
   const offset = (page - 1) * pagePerLimit;
   const pageResult = allResults.slice(offset, offset + pagePerLimit);
 
@@ -26,7 +31,10 @@ const Pagination: React.FC<{
 
   return (
     <section className={styles.products} id="products">
-      <h1 className={styles["products-list-h1"]} style={{ fontSize: "2.2em", textTransform: "initial" }}>
+      <h1
+        className={styles["products-list-h1"]}
+        style={{ fontSize: "2.2em", textTransform: "initial" }}
+      >
         Search Result for "{searchTerm}"
       </h1>
       <PaginationBtn
@@ -68,27 +76,22 @@ const Pagination: React.FC<{
 };
 
 const Search = () => {
-  const { accountValue } = useAccount();
   const router = useRouter();
-  const [allResults, setAllResults] = useState<ProductBrief[]>([]);
   const searchTerm = (router.query.search as string) || "";
 
-  useEffect(() => {
-    setAllResults(accountValue.searchResult.map((p) => p.data));
-  }, [searchTerm]);
+  const ProductsLayout = withProductsLayout<PaginationProps>({
+    component: Pagination,
+    className: "spacer-1 main-products",
+  });
 
   return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <Pagination
-          allResults={allResults}
-          page={parseInt(router.query.page as string) || 1}
-          searchTerm={searchTerm}
-          pathname={router.pathname}
-        />
-      </main>
-    </ProductsLayout>
+    <ProductsLayout
+      page={parseInt(router.query.page as string) || 1}
+      searchTerm={searchTerm}
+      pathname={router.pathname}
+    />
   );
 };
 
-export default withApollo({ ssr: false })(Search);
+export default Search;
+// export default withApollo({ ssr: false })(Search);

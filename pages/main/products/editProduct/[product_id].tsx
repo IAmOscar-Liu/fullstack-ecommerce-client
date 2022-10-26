@@ -1,20 +1,21 @@
 import { useRouter } from "next/router";
-import { withApollo } from "../../../../utils/withApollo";
-import { EditProduct as Edit } from "../../../../components/personalPage";
-import ProductsLayout from "../../../../layouts/ProductsLayout";
+import {
+  EditProduct as Edit,
+  EditProps,
+} from "../../../../components/personalPage";
+import { withProductsLayout } from "../../../../layouts/ProductsLayout";
 
 interface Props {}
 
 const EditProduct: React.FC<Props> = ({}) => {
   const router = useRouter();
+  const ProductsLayout = withProductsLayout<EditProps>({
+    component: Edit,
+    className: "spacer-1 main-products",
+  });
 
-  return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <Edit product_id={router.query.product_id as string} />
-      </main>
-    </ProductsLayout>
-  );
+  return <ProductsLayout product_id={router.query.product_id as string} />;
 };
 
-export default withApollo({ ssr: false })(EditProduct);
+export default EditProduct;
+// export default withApollo({ ssr: false })(EditProduct);

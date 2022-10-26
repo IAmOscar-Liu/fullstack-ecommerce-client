@@ -1,15 +1,14 @@
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import { AddProduct as MyAddProduct } from "../../../components/personalPage";
-import { withApollo } from "../../../utils/withApollo";
 
 const AddProduct = () => {
-  return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <MyAddProduct />
-      </main>
-    </ProductsLayout>
-  );
+  const ProductsLayout = withProductsLayout({
+    component: MyAddProduct,
+    className: "spacer-1 main-products",
+  });
+
+  return <ProductsLayout />;
 };
 
-export default withApollo({ ssr: false })(AddProduct);
+export default AddProduct;
+// export default withApollo({ ssr: false })(AddProduct);

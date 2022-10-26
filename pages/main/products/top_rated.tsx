@@ -10,20 +10,23 @@ import {
   useGetNumberOfProductAllTypesQuery,
   useGetTopRatedProductsQuery,
 } from "../../../generated/graphql";
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import gridStyles from "../../../styles/ProductGrid.module.css";
-import {
-  getStandAloneApolloClient,
-  withApollo,
-} from "../../../utils/withApollo";
+import { initializeApollo } from "../../../utils/apollo";
 
 const pagePerLimit = parseInt(process.env.PRODUCT_PER_PAGE_LIMIT) || 10;
 
-const Pagination: React.FC<{
+interface PaginationProps {
   pathname: string;
   page: number;
   totalProducts: number;
-}> = ({ page, pathname, totalProducts }) => {
+}
+
+const Pagination: React.FC<PaginationProps> = ({
+  page,
+  pathname,
+  totalProducts,
+}) => {
   const variables: { limit: number; offset: number; total?: number } = {
     limit: pagePerLimit,
     offset: (page - 1) * pagePerLimit,
@@ -67,22 +70,23 @@ const Pagination: React.FC<{
 const TopRated = () => {
   const { data: allTypes } = useGetNumberOfProductAllTypesQuery();
   const router = useRouter();
+  const ProductsLayout = withProductsLayout<PaginationProps>({
+    component: Pagination,
+    className: "spacer-1 main-products",
+  });
 
   return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        <Pagination
-          page={parseInt(router.query.page as string) || 1}
-          pathname={router.pathname}
-          totalProducts={allTypes?.getNumberOfProductAllTypes.topRated ?? 0}
-        />
-      </main>
-    </ProductsLayout>
+    <ProductsLayout
+      page={parseInt(router.query.page as string) || 1}
+      pathname={router.pathname}
+      totalProducts={allTypes?.getNumberOfProductAllTypes.topRated ?? 0}
+    />
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const client = getStandAloneApolloClient();
+  // const client = getStandAloneApolloClient();
+  const client = initializeApollo({ ssr: true });
   await client.query({
     query: GetTopRatedProductsDocument,
     variables: { offset: 0, limit: pagePerLimit },
@@ -90,9 +94,13 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     revalidate: 10,
-    props: { apolloState: client.cache.extract() },
+    props: {
+      // apolloState: client.cache.extract(),
+      initialApolloState: client.cache.extract(),
+      ssr: true,
+    },
   };
 };
 
-// export default All;
-export default withApollo({ ssr: false })(TopRated);
+export default TopRated;
+// export default withApollo({ ssr: false })(TopRated);

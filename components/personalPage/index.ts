@@ -7,3 +7,7 @@ export { default as EditProduct } from "./pageComps/EditProduct";
 export { default as Success } from "./pageComps/Success";
 export { default as Setting } from "./pageComps/Setting";
 export { default as Loading } from "./pageComps/Loading";
+
+export interface EditProps {
+  product_id: string;
+}

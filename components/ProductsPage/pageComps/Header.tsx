@@ -117,7 +117,6 @@ const Header: React.FC<Props> = ({ sidebarOpen, toggleSidebarOpen }) => {
   );
 
   const handleSearchTermChange = (term: string) => {
-    // setSearchTerm(term);
     setAccountValue((prev) => ({ ...prev, searchTerm: term }));
     getSearchResult(term);
   };

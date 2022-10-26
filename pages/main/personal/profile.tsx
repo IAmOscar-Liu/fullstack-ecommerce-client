@@ -1,27 +1,29 @@
-import ProductsLayout from "../../../layouts/ProductsLayout";
+import { withProductsLayout } from "../../../layouts/ProductsLayout";
 import {
   Profile as MyProfile,
   ProfileOther as MyProfileOther,
 } from "../../../components/personalPage";
-import { withApollo } from "../../../utils/withApollo";
 import { useRouter } from "next/router";
+import { ProfileOtherProps } from "../../../components/personalPage/pageComps/ProfileOther";
 
 const Profile = () => {
   const router = useRouter();
 
-  return (
-    <ProductsLayout>
-      <main className="spacer-1 main-products">
-        {router.query.account_id ? (
-          <MyProfileOther account_id={router.query.account_id as string} />
-        ) : (
-          <MyProfile />
-        )}
-      </main>
-    </ProductsLayout>
-  );
+  if (router.query.account_id) {
+    const ProductsLayout = withProductsLayout<ProfileOtherProps>({
+      component: MyProfileOther,
+      className: "spacer-1 main-products",
+    });
+    return <ProductsLayout account_id={router.query.account_id as string} />;
+  }
+
+  const ProductsLayout = withProductsLayout({
+    component: MyProfile,
+    className: "spacer-1 main-products",
+  });
+  return <ProductsLayout />;
 };
 
-// export default Profile;
+export default Profile;
 
-export default withApollo({ ssr: false })(Profile);
+// export default withApollo({ ssr: false })(Profile);

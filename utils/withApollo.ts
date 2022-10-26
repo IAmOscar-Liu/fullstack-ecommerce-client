@@ -4,14 +4,14 @@ import { setContext } from "@apollo/client/link/context";
 import jwtDecode from "jwt-decode";
 import { NextPageContext } from "next";
 import { createWithApollo } from "./createWithApollo";
-import getConfig from "next/config";
 
-const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
-const apiUrl = serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl;
+// const cacheConfig: InMemoryCacheConfig = {
+
+// }
 
 export const getStandAloneApolloClient = () => {
   return new ApolloClient({
-    uri: apiUrl + "/api/graphql",
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_SERVER_URL as string,
     cache: new InMemoryCache(),
   });
 };
@@ -38,10 +38,13 @@ const getAccessToken = async () => {
   try {
     if (isTokenValidOrUndefined(access_token)) return access_token;
 
-    const data = await fetch(apiUrl + "/api/refresh_token", {
-      method: "POST",
-      credentials: "include",
-    });
+    const data = await fetch(
+      process.env.NEXT_PUBLIC_API_URL + "/refresh_token",
+      {
+        method: "POST",
+        credentials: "include",
+      }
+    );
     const json = await data.json();
 
     if (json.ok && json.access_token) {
@@ -58,7 +61,11 @@ const getAccessToken = async () => {
 
 const createClient = (ctx: NextPageContext) => {
   const uploadLink = createUploadLink({
-    uri: apiUrl + "/api/graphql",
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_SERVER_URL as string,
+    headers: {
+      "Access-Control-Allow-Origin": "http://localhost:3000",
+      "Access-Control-Allow-Credentials": "true",
+    },
     credentials: "include",
   });
 
@@ -74,7 +81,8 @@ const createClient = (ctx: NextPageContext) => {
 
   return new ApolloClient({
     link: ApolloLink.from([asyncAuthLink, uploadLink]),
-    connectToDevTools: true, //process.env.NODE_ENV === "development",
+    connectToDevTools: process.env.NODE_ENV === "development",
+    // credentials: "include",
     cache: new InMemoryCache(),
   });
 };

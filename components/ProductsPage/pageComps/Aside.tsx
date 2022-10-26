@@ -1,7 +1,7 @@
 import { useApolloClient } from "@apollo/client";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import {
   MeDocument,
   MeQuery,
@@ -20,7 +20,6 @@ interface Props {
 
 const Aside: React.FC<Props> = ({ sidebarOpen }) => {
   const router = useRouter();
-  const urlBeforeOverviewRef = useRef<string>("/main/products/popular");
   const { data: allTypes } = useGetNumberOfProductAllTypesQuery();
   const { data: allCategories } = useGetAllCategoryQuery();
   const client = useApolloClient();
@@ -30,15 +29,19 @@ const Aside: React.FC<Props> = ({ sidebarOpen }) => {
     skip: isServer() || !meQuery?.me.account?.id,
   });
   const { data: numOfBlog } = useGetNumOfBlogsQuery();
-  const { accountValue, setDataFromLocalStorage } = useAccount();
+  const {
+    accountValue,
+    setDataFromLocalStorage,
+    urlBeforeOverview,
+    setUrlBeforeOverview,
+  } = useAccount();
 
   useEffect(() => {
     // console.log("aside, ", router.asPath);
     if (!router.asPath.startsWith("/main/more/overview")) {
-      // console.log("prev non-overview url: ", urlBeforeOverviewRef.current);
-      urlBeforeOverviewRef.current = router.asPath;
+      setUrlBeforeOverview(router.asPath);
     }
-  }, [router.pathname]);
+  }, []);
 
   // console.log(router);
 
@@ -284,7 +287,7 @@ const Aside: React.FC<Props> = ({ sidebarOpen }) => {
         </>
       ) : (
         <>
-          <Link href={urlBeforeOverviewRef.current}>
+          <Link href={urlBeforeOverview}>
             <a>
               <i className="fas fa-arrow-left"></i>
               <span>Go back</span>

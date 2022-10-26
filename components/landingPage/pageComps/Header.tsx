@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable react-hooks/exhaustive-deps */
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, {
   HTMLAttributes,
@@ -11,7 +10,6 @@ import React, {
 import { useMeQuery } from "../../../generated/graphql";
 import { isServer } from "../../../utils/isServer";
 import styles from "./Header.module.css";
-import Link from "next/link";
 
 interface Props {}
 
