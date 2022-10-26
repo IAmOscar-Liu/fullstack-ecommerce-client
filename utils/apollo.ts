@@ -18,7 +18,7 @@ let apolloServerState: any;
 
 export const getStandAloneApolloClient = () => {
   return new ApolloClient({
-    uri: apiUrl + "/api/graphql",
+    uri: apiUrl + "/graphql",
     cache: new InMemoryCache(),
   });
 };
@@ -71,7 +71,7 @@ const getAccessToken = async () => {
   try {
     if (isTokenValidOrUndefined(access_token)) return access_token;
 
-    const data = await fetch(apiUrl + "/api/refresh_token", {
+    const data = await fetch(apiUrl + "/refresh_token", {
       method: "POST",
       credentials: "include",
     });
@@ -91,7 +91,7 @@ const getAccessToken = async () => {
 
 const createClient = (ssr: boolean) => {
   const uploadLink = createUploadLink({
-    uri: apiUrl + "/api/graphql",
+    uri: apiUrl + "/graphql",
     credentials: "include",
   });
 

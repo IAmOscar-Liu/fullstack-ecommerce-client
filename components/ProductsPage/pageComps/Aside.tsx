@@ -204,7 +204,9 @@ const Aside: React.FC<Props> = ({ sidebarOpen }) => {
                     key={category.name}
                     className={
                       router.asPath.endsWith(
-                        `/categories/${category.name.split(" ").join("_")}`
+                        `/main/categories/${category.id}_${category.name
+                          .split(" ")
+                          .join("_")}`
                       )
                         ? styles.active
                         : ""
