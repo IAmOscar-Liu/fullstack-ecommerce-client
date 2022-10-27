@@ -14,7 +14,6 @@ const { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
 const apiUrl = serverRuntimeConfig.apiUrl || publicRuntimeConfig.apiUrl;
 
 let apolloClient: ApolloClient<NormalizedCacheObject>;
-let apolloServerState: any;
 
 export const getStandAloneApolloClient = () => {
   return new ApolloClient({
@@ -24,18 +23,15 @@ export const getStandAloneApolloClient = () => {
 };
 
 const combineState = (
-  apolloServerState: any,
   previousState: NormalizedCacheObject,
   initialState: any
 ) => {
   const newState = {
-    ...(apolloServerState ?? {}),
     ...previousState,
     ...(initialState ?? {}),
   };
 
   const combinedRootQuery = {
-    ...(apolloServerState?.ROOT_QUERY ?? {}),
     ...(previousState.ROOT_QUERY ?? {}),
     ...(initialState?.ROOT_QUERY ?? {}),
   };
@@ -126,11 +122,11 @@ export const initializeApollo = ({
 
   if (typeof window === "undefined") {
     // It's on server
-    newState = apolloServerState = initialState;
+    newState = initialState;
   } else {
     // Its on client
     const previousState = _apolloClient.cache.extract();
-    newState = combineState(apolloServerState, previousState, initialState);
+    newState = combineState(previousState, initialState);
   }
 
   if (newState) {
